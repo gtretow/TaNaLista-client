@@ -9,9 +9,6 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-<<<<<<< HEAD
 // Comment! Vitor
-=======
 
 //comentário pra commit
->>>>>>> master
