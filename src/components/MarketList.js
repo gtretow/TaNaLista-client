@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import SearchBar from "./compMarketList/SearchBar";
-import SelectItens from "./compMarketList/SelectItens";
 
 function MarketList() {
   const [state, setState] = useState({
@@ -197,12 +196,10 @@ function MarketList() {
       "Vassoura",
     ],
   });
-  const [item, setItem] = useState("");
 
   return (
     <div>
       <SearchBar list={state} setList={setState} />
-      <SelectItens item={item} setItem={setItem} />
     </div>
   );
 }

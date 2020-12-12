@@ -13,7 +13,7 @@ function SearchBar(props) {
 
   return (
     <div className="searchCamp">
-      <Autocomplete options={state.map((prod) => prod)} />
+      <Autocomplete options={state} original={props.list} />
     </div>
   );
 }
