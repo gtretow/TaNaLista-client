@@ -1,29 +1,66 @@
 .menus {
-  background-color: aquamarine;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .navBar {
-  width: 100px;
+  width: 10%;
 }
 .menusEscolha {
   width: 100vw;
   display: flex;
   justify-content: space-between;
 }
-
+.searchCamp {
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .searchBar {
+  width: 80%;
+  text-align: center;
+  border-color: #00b4cc;
+  border-radius: 25px;
+}
+
+ul.options {
+  display: block;
+  list-style: none;
+  width: 50%;
+  transition: width 0.3s;
+  margin: auto;
+  position: relative;
+}
+ul.options li {
+  display: block;
+  background: white;
+  margin: 0.5% auto;
+  padding: 1%;
   width: 100%;
+  border-radius: 25px;
   text-align: center;
 }
-.productList {
+ul.options li:hover {
+  font-weight: bold;
+  color: #00b4cc;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+ul.options li.option-active {
+  background: whitesmoke;
+  font-size: 1.2rem;
+  color: #00b4cc;
+}
+.no-options {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
 }
-.productList p {
-  border: black solid 1px;
-  margin: 0.5%;
+.no-options button {
+  background: whitesmoke;
+  font-size: 1.2rem;
+  color: #00b4cc;
+  border-radius: 25px;
+  border: none;
 }
