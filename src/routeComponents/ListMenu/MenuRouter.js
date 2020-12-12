@@ -17,7 +17,8 @@ function MenuRouter() {
         <Switch>
           <Route path="/menus/list" component={MarketList} />
           <Route path="/menus/history" component={HistoryMarketList} />
-        </Switch>{" "}
+          <Route exact path="/about" component={About} />
+        </Switch>
       </div>
       <About />
     </div>
