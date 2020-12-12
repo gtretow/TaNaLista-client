@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "../routeComponents/Home";
 import AuthRouter from "../routeComponents/auth/AuthRouter";
 import MenuRouter from "../routeComponents/ListMenu/MenuRouter";
-
 import { AuthContextComponent } from "../contexts/authContext";
 
 function App() {
