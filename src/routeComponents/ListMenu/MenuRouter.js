@@ -4,7 +4,7 @@ import { Link, Switch, Route } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import MarketList from "../../components/MarketList";
 import HistoryMarketList from "../../components/HistoryMarketList";
-import About from "../../components/About";
+
 
 function MenuRouter() {
   return (
