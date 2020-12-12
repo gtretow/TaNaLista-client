@@ -4,7 +4,7 @@ import { Link, Switch, Route } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import MarketList from "../../components/MarketList";
 import HistoryMarketList from "../../components/HistoryMarketList";
-import About from "../../components/About";
+
 
 function MenuRouter() {
   return (
@@ -15,12 +15,12 @@ function MenuRouter() {
           <Navbar />
         </div>
         <Switch>
-          <Route path="/menus/list" component={MarketList} />
-          <Route path="/menus/history" component={HistoryMarketList} />
-          <Route exact path="/about" component={About} />
+          <Route exact path="/menus/list" component={MarketList} />
+          <Route exact path="/menus/history" component={HistoryMarketList} />
+          
         </Switch>
       </div>
-      <About />
+     
     </div>
   );
 }
