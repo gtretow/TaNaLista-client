@@ -41,12 +41,18 @@ function Login(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
+    <div className="helpasss">
+    <form
+      className=" container  align-items-center  w-25 "
+      onSubmit={handleSubmit}
+    >
+      <h1 className="text-center   ">Login</h1>
 
-      <div>
+      <div className="text-center form-group">
         <label htmlFor="signupFormEmail">E-mail Address</label>
         <input
+          className="form-control"
+          placeholder="E-mail"
           type="email"
           name="email"
           id="signupFormEmail"
@@ -56,9 +62,11 @@ function Login(props) {
         />
       </div>
 
-      <div>
+      <div className="text-center form-group">
         <label htmlFor="signupFormPassword">Password</label>
         <input
+          className="form-control"
+          placeholder="Password"
           type="password"
           name="password"
           id="signupFormPassword"
@@ -68,14 +76,19 @@ function Login(props) {
         />
       </div>
 
-      <div>
-        <button type="submit">Login!</button>
+      <div className="text-center form-group">
+        <button className="btn btn-primary" type="submit">
+          Login!
+        </button>
+      </div>
 
+      <div className="text-center form-group">
         <Link to="/auth/signup">
           Don't have an account? Click here to signup!
         </Link>
       </div>
     </form>
+    </div>
   );
 }
 
