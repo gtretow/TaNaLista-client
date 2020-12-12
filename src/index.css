@@ -1,0 +1,29 @@
+.menus {
+  background-color: aquamarine;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navBar {
+  width: 100px;
+}
+.menusEscolha {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchBar {
+  width: 100%;
+  text-align: center;
+}
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.productList p {
+  border: black solid 1px;
+  margin: 0.5%;
+}
