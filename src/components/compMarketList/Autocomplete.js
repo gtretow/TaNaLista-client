@@ -53,7 +53,10 @@ export class Autocomplete extends Component {
       filteredOptions: [],
       showOptions: false,
       userInput: "",
-      itemSelected: userInput,
+      itemSelected: userInput
+        .split(" ")
+        .map((word) => word[0].toUpperCase() + word.slice(1))
+        .join(" "),
       originalList: this.props.original,
       categorySelected: categorySelected,
     });
@@ -62,15 +65,27 @@ export class Autocomplete extends Component {
     this.setState({ ...this.state, categorySelected: e.currentTarget.value });
   };
   handleKeyDown = (e) => {
-    const { activeOption, filteredOptions } = this.state;
+    const {
+      userInput,
+      activeOption,
+      filteredOptions,
+      categorySelected,
+    } = this.state;
 
     if (e.keyCode === 13) {
       this.setState({
         activeOption: 0,
         showOptions: false,
         userInput: "",
-        itemSelected: filteredOptions[activeOption],
+        itemSelected:
+          filteredOptions[activeOption] === undefined
+            ? userInput
+                .split(" ")
+                .map((word) => word[0].toUpperCase() + word.slice(1))
+                .join(" ")
+            : filteredOptions[activeOption],
         originalList: this.props.original,
+        categorySelected: categorySelected,
       });
     } else if (e.keyCode === 38) {
       if (activeOption === 0) {
