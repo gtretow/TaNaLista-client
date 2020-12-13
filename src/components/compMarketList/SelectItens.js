@@ -9,49 +9,65 @@ function SelectItens(props) {
   const [higiene, setHigiene] = useState([]);
 
   //função que retorna um objeto com a categoria e o produto selecionado
-  function getCategory(product, list) {
+  function getCategory(product, list, categorySelected) {
     for (let i = 0; i < Object.keys(list).length; i++) {
       if (Object.values(list)[i].indexOf(product) >= 0)
         return { categoria: Object.keys(list)[i], produto: product };
     }
-    return { categoria: "-", produto: product };
+    return { categoria: categorySelected, produto: product };
   }
 
   //useeffect que atualiza os states dependendo de qual categoria é retornada na função acima
   useEffect(() => {
     if (
       props.atual.length > 0 &&
-      getCategory(props.atual, props.original).categoria === "Despensa"
+      getCategory(props.atual, props.original, props.newCategory).categoria ===
+        "Despensa"
     ) {
-      setDespensa([...despensa, getCategory(props.atual, props.original)]);
-    }
-    if (
-      props.atual.length > 0 &&
-      getCategory(props.atual, props.original).categoria === "Freezer"
-    ) {
-      setFreezer([...freezer, getCategory(props.atual, props.original)]);
-    }
-    if (
-      props.atual.length > 0 &&
-      getCategory(props.atual, props.original).categoria === "Geladeira"
-    ) {
-      setGeladeira([...geladeira, getCategory(props.atual, props.original)]);
-    }
-    if (
-      props.atual.length > 0 &&
-      getCategory(props.atual, props.original).categoria ===
-        "Frutas e Hortaliças"
-    ) {
-      setFrutasHortalicas([
-        ...frutasHortalicas,
-        getCategory(props.atual, props.original),
+      setDespensa([
+        ...despensa,
+        getCategory(props.atual, props.original, props.newCategory),
       ]);
     }
     if (
       props.atual.length > 0 &&
-      getCategory(props.atual, props.original).categoria === "Higiene"
+      getCategory(props.atual, props.original, props.newCategory).categoria ===
+        "Freezer"
     ) {
-      setHigiene([...higiene, getCategory(props.atual, props.original)]);
+      setFreezer([
+        ...freezer,
+        getCategory(props.atual, props.original, props.newCategory),
+      ]);
+    }
+    if (
+      props.atual.length > 0 &&
+      getCategory(props.atual, props.original, props.newCategory).categoria ===
+        "Geladeira"
+    ) {
+      setGeladeira([
+        ...geladeira,
+        getCategory(props.atual, props.original, props.newCategory),
+      ]);
+    }
+    if (
+      props.atual.length > 0 &&
+      getCategory(props.atual, props.original, props.newCategory).categoria ===
+        "Frutas e Hortaliças"
+    ) {
+      setFrutasHortalicas([
+        ...frutasHortalicas,
+        getCategory(props.atual, props.original, props.newCategory),
+      ]);
+    }
+    if (
+      props.atual.length > 0 &&
+      getCategory(props.atual, props.original, props.newCategory).categoria ===
+        "Higiene"
+    ) {
+      setHigiene([
+        ...higiene,
+        getCategory(props.atual, props.original, props.newCategory),
+      ]);
     }
   }, [props]);
 

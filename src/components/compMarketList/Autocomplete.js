@@ -14,9 +14,10 @@ export class Autocomplete extends Component {
     userInput: "",
     itemSelected: "",
     originalList: {},
+    categorySelected: Object.keys(this.props.original)[0],
   };
 
-  handleChance = (e) => {
+  handleChange = (e) => {
     const { options } = this.props;
     const userInput = e.currentTarget.value;
 
@@ -32,6 +33,7 @@ export class Autocomplete extends Component {
       userInput: e.currentTarget.value,
       itemSelected: "",
       original: {},
+      categorySelected: Object.keys(this.props.original)[0],
     });
   };
   handleClick = (e) => {
@@ -45,7 +47,7 @@ export class Autocomplete extends Component {
     });
   };
   handleNew = (e) => {
-    const { userInput } = this.state;
+    const { categorySelected, userInput } = this.state;
     this.setState({
       activeOption: 0,
       filteredOptions: [],
@@ -53,9 +55,12 @@ export class Autocomplete extends Component {
       userInput: "",
       itemSelected: userInput,
       originalList: this.props.original,
+      categorySelected: categorySelected,
     });
   };
-
+  handleSelect = (e) => {
+    this.setState({ ...this.state, categorySelected: e.currentTarget.value });
+  };
   handleKeyDown = (e) => {
     const { activeOption, filteredOptions } = this.state;
 
@@ -92,10 +97,11 @@ export class Autocomplete extends Component {
 
   render() {
     const {
-      handleChance,
+      handleChange,
       handleClick,
       handleKeyDown,
       handleNew,
+      handleSelect,
 
       state: {
         activeOption,
@@ -104,6 +110,7 @@ export class Autocomplete extends Component {
         userInput,
         itemSelected,
         originalList,
+        categorySelected,
       },
     } = this;
     let optionList;
@@ -127,6 +134,13 @@ export class Autocomplete extends Component {
       } else {
         optionList = (
           <div className="no-options">
+            <select className="btn" onChange={handleSelect}>
+              {Object.keys(this.props.original).map((category, idx) => (
+                <option key={idx} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
             <button onClick={handleNew} className="btn">
               Inserir novo produto
             </button>
@@ -140,12 +154,16 @@ export class Autocomplete extends Component {
           type="text"
           className="searchBar"
           placeholder="Procure o produto que deseja"
-          onChange={handleChance}
+          onChange={handleChange}
           onKeyDown={handleKeyDown}
           value={userInput}
         />
         {optionList}
-        <SelectItens atual={itemSelected} original={originalList} />
+        <SelectItens
+          atual={itemSelected}
+          original={originalList}
+          newCategory={categorySelected}
+        />
       </React.Fragment>
     );
   }
