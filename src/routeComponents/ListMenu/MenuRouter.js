@@ -1,26 +1,25 @@
 import React from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Navbar from "../../components/Navbar";
 import MarketList from "../../components/MarketList";
 import HistoryMarketList from "../../components/HistoryMarketList";
-import About from "../../components/About";
+
+// compente Navbar
+// componente "/menus/list" vai renderizar o criador de lista => search, autocomplete, tabelas com os itens selecionados
+// componente "/menus/history" vai renderizar o histórico de listas do usuário
 
 function MenuRouter() {
   return (
-    <div className="menus">
-      <div className="menusEscolha">
-        <div className="navBar">
-          <Link to="/">para /</Link>
-          <Navbar />
-        </div>
+    <React.Fragment>
+      <Navbar className="pb-4" />
+      <div className=" mt-4 pt-3 d-flex justify-content-center ">
         <Switch>
-          <Route path="/menus/list" component={MarketList} />
-          <Route path="/menus/history" component={HistoryMarketList} />
-        </Switch>{" "}
+          <Route exact path="/menus/list" component={MarketList} />
+          <Route exact path="/menus/history" component={HistoryMarketList} />
+        </Switch>
       </div>
-      <About />
-    </div>
+    </React.Fragment>
   );
 }
 

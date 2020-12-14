@@ -31,53 +31,67 @@ function Signup(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Signup!</h1>
+    <div className="">
+      <form
+        className="container   w-25 "
+        onSubmit={handleSubmit}
+      >
+        <h1 className="text-center ">Signup!</h1>
 
-      <div>
-        <label htmlFor="signupFormName">Name</label>
-        <input
-          type="text"
-          name="name"
-          id="signupFormName"
-          value={state.name}
-          error={errors.name}
-          onChange={handleChange}
-        />
-      </div>
+        <div className="text-center form-group">
+          <label htmlFor="signupFormName">Full Name</label>
+          <input
+            className="form-control"
+            placeholder="Name "
+            type="text"
+            name="name"
+            id="signupFormName"
+            value={state.name}
+            error={errors.name}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div>
-        <label htmlFor="signupFormEmail">E-mail Address</label>
-        <input
-          type="email"
-          name="email"
-          id="signupFormEmail"
-          value={state.email}
-          error={errors.email}
-          onChange={handleChange}
-        />
-      </div>
+        <div className="text-center form-group">
+          <label htmlFor="signupFormEmail">E-mail Address</label>
+          <input
+            placeholder="E-maill"
+            className="form-control"
+            type="email"
+            name="email"
+            id="signupFormEmail"
+            value={state.email}
+            error={errors.email}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div>
-        <label htmlFor="signupFormPassword">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="signupFormPassword"
-          value={state.password}
-          error={errors.password}
-          onChange={handleChange}
-        />
-      </div>
+        <div className="text-center form-group">
+          <label htmlFor="signupFormPassword">Password</label>
+          <input
+            placeholder="Password"
+            className="form-control"
+            type="password"
+            name="password"
+            id="signupFormPassword"
+            value={state.password}
+            error={errors.password}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div>
-        <button type="submit">Signup!</button>
-
-        <Link to="/auth/login">
-          Already have an account? Click here to login.
-        </Link>
-      </div>
-    </form>
+        <div className="text-center form-group">
+          <button className="btn btn-primary" type="submit">
+            Signup!
+          </button>
+        </div>
+        <div className="text-center form-group">
+          <Link to="/auth/login">
+            Already have an account? Click here to login.
+          </Link>
+        </div>
+      </form>
+    </div>
   );
 }
 

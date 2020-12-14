@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import SearchBar from "./compMarketList/SearchBar";
-import SelectItens from "./compMarketList/SelectItens";
+import CreateListPage from "./compMarketList/CreateListPage";
 
 function MarketList() {
+  //aqui é instanciado a lista de produtos => futuramente vai mudar para o axios no banco com a lista de produtos
   const [state, setState] = useState({
     Despensa: [
       "Achocolatado",
@@ -197,12 +197,11 @@ function MarketList() {
       "Vassoura",
     ],
   });
-  const [item, setItem] = useState("");
 
   return (
+    //componente CreateListPage é o componente pai da pagina que cria as listas
     <div>
-      <SearchBar list={state} setList={setState} />
-      <SelectItens item={item} setItem={setItem} />
+      <CreateListPage list={state} setList={setState} />
     </div>
   );
 }
