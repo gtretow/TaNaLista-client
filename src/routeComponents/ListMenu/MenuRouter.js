@@ -1,26 +1,24 @@
 import React from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Navbar from "../../components/Navbar";
 import MarketList from "../../components/MarketList";
 import HistoryMarketList from "../../components/HistoryMarketList";
 
-
 function MenuRouter() {
   return (
-    <div className="menus">
-      <div className="menusEscolha">
-        <div className="navBar">
-          <Link to="/">para /</Link>
-          <Navbar />
-        </div>
+    <div>
+      <div className="pb-4">
+        <Navbar />
+      </div>
+
+      <div className=" mt-4 pt-3 d-flex justify-content-center ">
         <Switch>
           <Route exact path="/menus/list" component={MarketList} />
+
           <Route exact path="/menus/history" component={HistoryMarketList} />
-          
         </Switch>
       </div>
-     
     </div>
   );
 }
