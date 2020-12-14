@@ -4,10 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./components/Home";
 import About from "./components/About";
 import AuthRouter from "./routeComponents/auth/AuthRouter";
-import MenuRouter from "./routeComponents/ListMenu/MenuRouter";
 import { AuthContextComponent } from "./contexts/authContext";
 import MarketList from "./components/MarketList";
-
+import HistoryMarketList from "./components/HistoryMarketList";
 // Rota "/" é a da página inicial, onde o usuário clica no botão login
 // Rota "/about" vai para uma pagina de about
 // Rota "/auth" vai para as paginas de login a signup
@@ -20,8 +19,9 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
-          <Route path="/auth" component={AuthRouter} />
-          <Route path="/list" component={MarketList} />
+          <Route exact path="/auth" component={AuthRouter} />
+          <Route exact path="/lista" component={MarketList} />
+          <Route exact path="/historico" component={HistoryMarketList} />
         </Switch>
       </AuthContextComponent>
     </BrowserRouter>

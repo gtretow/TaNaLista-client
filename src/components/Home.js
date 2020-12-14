@@ -11,10 +11,10 @@ function Home() {
           Login Here
         </Link>
       </div>
-      <Link className="btn btn-lg btn-primary m-3" to="/auth/signup">
+      <Link className="btn btn-lg btn-primary m-3" to="/auth/Signup">
         Signup Here
       </Link>
-      <Link className="btn btn-lg btn-primary m-3" to="/menus/list">
+      <Link className="btn btn-lg btn-primary m-3" to="/lista">
         Create List
       </Link>
     </div>
