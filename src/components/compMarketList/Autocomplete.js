@@ -167,7 +167,7 @@ export class Autocomplete extends Component {
       <React.Fragment>
         <input
           type="text"
-          className="searchBar"
+          className="searchBar d-inline-flex p-2 text-center form-control mr-4"
           placeholder="Procure o produto que deseja"
           onChange={handleChange}
           onKeyDown={handleKeyDown}

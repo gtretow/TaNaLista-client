@@ -12,7 +12,7 @@ function SearchBar(props) {
   }, [props]);
 
   return (
-    <div className="searchCamp">
+    <div className="searchCamp d-inline-flex p-2 w-2">
       <Autocomplete options={state} original={props.list} />
     </div>
   );
