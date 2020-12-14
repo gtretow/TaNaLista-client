@@ -11,16 +11,12 @@ function Home() {
           Login Here
         </Link>
       </div>
-      <div>
-        <Link className="btn btn-lg btn-primary m-3" to="/auth/signup">
-          Signup Here
-        </Link>
-      </div>
-      <div>
-        <Link className="btn btn-lg btn-primary m-3" to="/menus/list">
-          Create List
-        </Link>
-      </div>
+      <Link className="btn btn-lg btn-primary m-3" to="/auth/signup">
+        Signup Here
+      </Link>
+      <Link className="btn btn-lg btn-primary m-3" to="/menus/list">
+        Create List
+      </Link>
     </div>
   );
 }
