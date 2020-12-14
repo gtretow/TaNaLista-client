@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 function SelectItens(props) {
   //instancia cada categoria em branco
@@ -7,6 +8,14 @@ function SelectItens(props) {
   const [geladeira, setGeladeira] = useState([]);
   const [frutasHortalicas, setFrutasHortalicas] = useState([]);
   const [higiene, setHigiene] = useState([]);
+
+  const [listaDND, setListaDND] = useState([
+    { despensa },
+    { freezer },
+    { geladeira },
+    { frutasHortalicas },
+    { higiene },
+  ]);
 
   //função que retorna um objeto com a categoria e o produto selecionado
   function getCategory(product, list, categorySelected) {
@@ -71,109 +80,182 @@ function SelectItens(props) {
     }
   }, [props]);
 
+  //função drag and drop
+  function handleOnDragEnd(result) {
+    const items = [...listaDND];
+    console.log(listaDND);
+    const [reordedItems] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reordedItems);
+    setListaDND(items);
+  }
+
   //o return está com ternário porque no return não aceita if, mas eles olham de o state está prrenchido, e caso esteja rederiza uma tabela com o conteudo do seu respectivo state
   return (
     <React.Fragment>
-      {despensa.length > 0 ? (
-        <table className="tableSelected">
-          <thead className="tableHead">
-            <tr>
-              <th>Produto</th>
-              <th>Categoria</th>
-            </tr>
-          </thead>
-          <tbody className="tableBody">
-            {despensa.map((element, idx) => (
-              <tr key={idx}>
-                <td>{element.produto}</td>
-                <td>{element.categoria}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <></>
-      )}
-      {freezer.length > 0 ? (
-        <table className="tableSelected">
-          <thead className="tableHead">
-            <tr>
-              <th>Produto</th>
-              <th>Categoria</th>
-            </tr>
-          </thead>
-          <tbody className="tableBody">
-            {freezer.map((element, idx) => (
-              <tr key={idx}>
-                <td>{element.produto}</td>
-                <td>{element.categoria}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <></>
-      )}
-      {geladeira.length > 0 ? (
-        <table className="tableSelected">
-          <thead className="tableHead">
-            <tr>
-              <th>Produto</th>
-              <th>Categoria</th>
-            </tr>
-          </thead>
-          <tbody className="tableBody">
-            {geladeira.map((element, idx) => (
-              <tr key={idx}>
-                <td>{element.produto}</td>
-                <td>{element.categoria}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <></>
-      )}
-      {frutasHortalicas.length > 0 ? (
-        <table className="tableSelected">
-          <thead className="tableHead">
-            <tr>
-              <th>Produto</th>
-              <th>Categoria</th>
-            </tr>
-          </thead>
-          <tbody className="tableBody">
-            {frutasHortalicas.map((element, idx) => (
-              <tr key={idx}>
-                <td>{element.produto}</td>
-                <td>{element.categoria}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <></>
-      )}
-      {higiene.length > 0 ? (
-        <table className="tableSelected">
-          <thead className="tableHead">
-            <tr>
-              <th>Produto</th>
-              <th>Categoria</th>
-            </tr>
-          </thead>
-          <tbody className="tableBody">
-            {higiene.map((element, idx) => (
-              <tr key={idx}>
-                <td>{element.produto}</td>
-                <td>{element.categoria}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <></>
-      )}
+      <DragDropContext onDragEnd={handleOnDragEnd}>
+        <Droppable droppableId="itemList">
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              <Draggable draggableId={"despensa"} index={0}>
+                {(provided) => (
+                  <div
+                    className="text-center my-3"
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                  >
+                    {despensa.length > 0 ? (
+                      <table className="tableSelected">
+                        <thead className="tableHead">
+                          <tr>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                          </tr>
+                        </thead>
+                        <tbody className="tableBody">
+                          {despensa.map((element, idx) => (
+                            <tr key={idx}>
+                              <td>{element.produto}</td>
+                              <td>{element.categoria}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                )}
+              </Draggable>
+              <Draggable draggableId={"freezer"} index={1}>
+                {(provided) => (
+                  <div
+                    className="text-center my-3"
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                  >
+                    {freezer.length > 0 ? (
+                      <table className="tableSelected">
+                        <thead className="tableHead">
+                          <tr>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                          </tr>
+                        </thead>
+                        <tbody className="tableBody">
+                          {freezer.map((element, idx) => (
+                            <tr key={idx}>
+                              <td>{element.produto}</td>
+                              <td>{element.categoria}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                )}
+              </Draggable>
+              <Draggable draggableId={"geladeira"} index={2}>
+                {(provided) => (
+                  <div
+                    className="text-center my-3"
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                  >
+                    {geladeira.length > 0 ? (
+                      <table className="tableSelected">
+                        <thead className="tableHead">
+                          <tr>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                          </tr>
+                        </thead>
+                        <tbody className="tableBody">
+                          {geladeira.map((element, idx) => (
+                            <tr key={idx}>
+                              <td>{element.produto}</td>
+                              <td>{element.categoria}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                )}
+              </Draggable>
+              <Draggable draggableId={"frutasHortalicas"} index={3}>
+                {(provided) => (
+                  <div
+                    className="text-center my-3"
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                  >
+                    {frutasHortalicas.length > 0 ? (
+                      <table className="tableSelected">
+                        <thead className="tableHead">
+                          <tr>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                          </tr>
+                        </thead>
+                        <tbody className="tableBody">
+                          {frutasHortalicas.map((element, idx) => (
+                            <tr key={idx}>
+                              <td>{element.produto}</td>
+                              <td>{element.categoria}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                )}
+              </Draggable>
+              <Draggable draggableId={"higiene"} index={4}>
+                {(provided) => (
+                  <div
+                    className="text-center my-3"
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                  >
+                    {higiene.length > 0 ? (
+                      <table className="tableSelected">
+                        <thead className="tableHead">
+                          <tr>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                          </tr>
+                        </thead>
+                        <tbody className="tableBody">
+                          {higiene.map((element, idx) => (
+                            <tr key={idx}>
+                              <td>{element.produto}</td>
+                              <td>{element.categoria}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                )}
+              </Draggable>
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
     </React.Fragment>
   );
 }
