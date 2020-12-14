@@ -6,6 +6,7 @@ import About from "./components/About";
 import AuthRouter from "./routeComponents/auth/AuthRouter";
 import MenuRouter from "./routeComponents/ListMenu/MenuRouter";
 import { AuthContextComponent } from "./contexts/authContext";
+import MarketList from "./components/MarketList";
 
 // Rota "/" é a da página inicial, onde o usuário clica no botão login
 // Rota "/about" vai para uma pagina de about
@@ -20,7 +21,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
           <Route path="/auth" component={AuthRouter} />
-          <Route path="/menus" component={MenuRouter} />
+          <Route path="/list" component={MarketList} />
         </Switch>
       </AuthContextComponent>
     </BrowserRouter>
