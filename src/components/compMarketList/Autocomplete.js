@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+import SearchBar from "./SearchBar";
 import SelectItens from "./SelectItens";
 
 export class Autocomplete extends Component {
   static propTypes = {
     options: PropTypes.instanceOf(Array).isRequired,
   };
+  //state contendo as informações das mudanças no search
   state = {
     activeOption: 0,
     filteredOptions: [],
@@ -17,6 +19,7 @@ export class Autocomplete extends Component {
     categorySelected: Object.keys(this.props.original)[0],
   };
 
+  //função de mudança conforme escreve na search
   handleChange = (e) => {
     const { options } = this.props;
     const userInput = e.currentTarget.value;
@@ -36,6 +39,7 @@ export class Autocomplete extends Component {
       categorySelected: Object.keys(this.props.original)[0],
     });
   };
+  //função ao clicar nos produtos existentes envia para o SelectItens
   handleClick = (e) => {
     this.setState({
       activeOption: 0,
@@ -46,6 +50,7 @@ export class Autocomplete extends Component {
       originalList: this.props.original,
     });
   };
+  //função ao clicar em inserir novo produto
   handleNew = (e) => {
     const { categorySelected, userInput } = this.state;
     this.setState({
@@ -61,9 +66,11 @@ export class Autocomplete extends Component {
       categorySelected: categorySelected,
     });
   };
+  //função para salvar o nome do novo produto conforme a usuário escreve
   handleSelect = (e) => {
     this.setState({ ...this.state, categorySelected: e.currentTarget.value });
   };
+  //função que identifica a tecla clicada e interage, teclas => Enter, Seta para baixo, Seta para Cima
   handleKeyDown = (e) => {
     const {
       userInput,
@@ -109,7 +116,7 @@ export class Autocomplete extends Component {
       });
     }
   };
-
+  //no método render renderiza a lista dinâmica conforme o escrito na searchbar
   render() {
     const {
       handleChange,
@@ -129,6 +136,7 @@ export class Autocomplete extends Component {
       },
     } = this;
     let optionList;
+    //se o escrito/produto existir é renderizado
     if (showOptions && userInput) {
       if (filteredOptions.length) {
         optionList = (
@@ -146,7 +154,9 @@ export class Autocomplete extends Component {
             })}
           </ul>
         );
-      } else {
+      }
+      //e for um produto novo vai renderizar o else
+      else {
         optionList = (
           <div className="no-options">
             <select className="btn" onChange={handleSelect}>
@@ -163,15 +173,14 @@ export class Autocomplete extends Component {
         );
       }
     }
+    //componente SearchBar é o componete de procura
+    //componente SelectItens é o que cria as tabelas automaticamente conforme escolhe os produtos na search, tanto existentes quanto novos.
     return (
       <React.Fragment>
-        <input
-          type="text"
-          className="searchBar d-inline-flex p-2 text-center form-control mr-4"
-          placeholder="Procure o produto que deseja"
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          value={userInput}
+        <SearchBar
+          handleChange={handleChange}
+          handleKeyDown={handleKeyDown}
+          userInput={userInput}
         />
         {optionList}
         <SelectItens

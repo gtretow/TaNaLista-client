@@ -31,6 +31,7 @@ ul.options li.option-active {
   font-size: 1.2rem;
   color: #00b4cc;
 }
+
 .no-options {
   display: flex;
   justify-content: center;

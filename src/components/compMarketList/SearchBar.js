@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from "react";
-
-import Autocomplete from "./Autocomplete";
+import React from "react";
 
 function SearchBar(props) {
-  const [state, setState] = useState([]);
-
-  useEffect(() => {
-    let arr = [];
-    Object.values(props.list).map((cat) => cat.map((prod) => arr.push(prod)));
-    setState(arr);
-  }, [props]);
-
   return (
-    <div className="searchCamp d-inline-flex p-2 w-2">
-      <Autocomplete options={state} original={props.list} />
-    </div>
+    <input
+      type="text"
+      className="searchBar d-inline-flex p-2 text-center form-control mr-4"
+      placeholder="Procure o produto que deseja"
+      onChange={props.handleChange}
+      onKeyDown={props.handleKeyDown}
+      value={props.userInput}
+    />
   );
 }
 
