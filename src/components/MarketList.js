@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import CreateListPage from "./compMarketList/CreateListPage";
+import Navbar from "./Navbar";
 
 function MarketList() {
   //aqui é instanciado a lista de produtos => futuramente vai mudar para o axios no banco com a lista de produtos
@@ -200,7 +201,9 @@ function MarketList() {
 
   return (
     //componente CreateListPage é o componente pai da pagina que cria as listas
+
     <div>
+      <Navbar />
       <CreateListPage list={state} setList={setState} />
     </div>
   );
