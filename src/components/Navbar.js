@@ -26,12 +26,12 @@ function Navbarmain() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/lista">
+            <Link className="nav-link text-white" to="/menus/lista">
               Criar Lista
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="#">
+            <Link className="nav-link text-white" to="/menus/listas-salvas">
               Listas Salvas
             </Link>
           </li>

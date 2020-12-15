@@ -26,7 +26,7 @@ function ListaRouter(props) {
             component={MarketList}
           />
           <PrivateRoute
-            path={`${props.match.path}/historico`}
+            path={`${props.match.path}/listas-salvas`}
             component={HistoryMarketList}
           />
           <PrivateRoute
