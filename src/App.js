@@ -7,6 +7,14 @@ import AuthRouter from "./routeComponents/auth/AuthRouter";
 import { AuthContextComponent } from "./contexts/authContext";
 import MarketList from "./components/MarketList";
 import HistoryMarketList from "./components/HistoryMarketList";
+import Login from "./routeComponents/auth/Login"
+import Signup from "./routeComponents/auth/Signup"
+
+
+
+
+
+
 // Rota "/" é a da página inicial, onde o usuário clica no botão login
 // Rota "/about" vai para uma pagina de about
 // Rota "/auth" vai para as paginas de login a signup
@@ -22,6 +30,8 @@ function App() {
           <Route exact path="/auth" component={AuthRouter} />
           <Route exact path="/lista" component={MarketList} />
           <Route exact path="/historico" component={HistoryMarketList} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
         </Switch>
       </AuthContextComponent>
     </BrowserRouter>

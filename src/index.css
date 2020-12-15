@@ -1,40 +1,39 @@
 .searchBar {
   width: 700px;
   border-radius: 25px;
+
+  border: 1px solid black;
+}
+
+.login {
+  border-radius: 25px;
 }
 
 ul.options {
-  display: block;
   list-style: none;
-  width: 50%;
   transition: width 0.3s;
-  margin: auto;
-  position: relative;
 }
 ul.options li {
-  display: block;
+  border: 1px solid black;
   background: white;
-  margin: 0.5% auto;
+  margin: 0.7% auto;
   padding: 1%;
-  width: 100%;
   border-radius: 25px;
-  text-align: center;
 }
 ul.options li:hover {
   font-weight: bold;
-  color: #00b4cc;
+  color: #32b62d;
   cursor: pointer;
-  transition: 0.3s all;
+  transition: 0.2s all;
 }
 ul.options li.option-active {
   background: whitesmoke;
   font-size: 1.2rem;
-  color: #00b4cc;
+  color: #32b62d
 }
 
 .no-options {
-  display: flex;
-  justify-content: center;
+  
 }
 .no-options button {
   background: whitesmoke;

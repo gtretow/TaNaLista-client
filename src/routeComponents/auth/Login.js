@@ -42,52 +42,52 @@ function Login(props) {
 
   return (
     <div className="">
-    <form
-      className=" container  align-items-center  w-25 "
-      onSubmit={handleSubmit}
-    >
-      <h1 className="text-center   ">Login</h1>
+      <form
+        className=" container  align-items-center  w-25 "
+        onSubmit={handleSubmit}
+      >
+        <h1 className="text-center   ">Login</h1>
 
-      <div className="text-center form-group">
-        <label htmlFor="signupFormEmail">E-mail Address</label>
-        <input
-          className="form-control"
-          placeholder="E-mail"
-          type="email"
-          name="email"
-          id="signupFormEmail"
-          value={state.email}
-          error={errors.email}
-          onChange={handleChange}
-        />
-      </div>
+        <div className="text-center form-group">
+          <label htmlFor="signupFormEmail">E-mail Address</label>
+          <input
+            className="form-control login "
+            placeholder="E-mail"
+            type="email"
+            name="email"
+            id="signupFormEmail"
+            value={state.email}
+            error={errors.email}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div className="text-center form-group">
-        <label htmlFor="signupFormPassword">Password</label>
-        <input
-          className="form-control"
-          placeholder="Password"
-          type="password"
-          name="password"
-          id="signupFormPassword"
-          value={state.password}
-          error={errors.password}
-          onChange={handleChange}
-        />
-      </div>
+        <div className="text-center form-group">
+          <label htmlFor="signupFormPassword">Password</label>
+          <input
+            className="form-control login"
+            placeholder="Password"
+            type="password"
+            name="password"
+            id="signupFormPassword"
+            value={state.password}
+            error={errors.password}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div className="text-center form-group">
-        <button className="btn btn-primary" type="submit">
-          Login!
-        </button>
-      </div>
+        <div className="text-center form-group">
+          <button className="btn btn-primary" type="submit">
+            Login!
+          </button>
+        </div>
 
-      <div className="text-center form-group">
-        <Link to="/auth/signup">
-          Don't have an account? Click here to signup!
-        </Link>
-      </div>
-    </form>
+        <div className="text-center form-group">
+          <Link to="/signup">
+            Don't have an account? Click here to signup!
+          </Link>
+        </div>
+      </form>
     </div>
   );
 }

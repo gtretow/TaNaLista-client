@@ -36,10 +36,11 @@ function MarketList() {
   return (
     <div>
       <Navbar />
+
       <Autocomplete
         options={listaDeProdutos}
         original={objetoOriginal}
-        className=" d-inline-flex p-2 w-2"
+        className="p-2 w-2 "
       />
     </div>
   );
