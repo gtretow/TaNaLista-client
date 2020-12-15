@@ -54,6 +54,7 @@ function SelectItens(props) {
         `${process.env.REACT_APP_API_BASE}/lista`,
         listTodataBase
       );
+      window.alert("Lista salva com sucesso!");
     } catch (err) {
       console.error(err);
     }
