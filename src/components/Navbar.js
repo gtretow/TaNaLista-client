@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Link } from "react-router-dom";
+import { Navbar } from "react-bootstrap";
 
-function Navbar() {
+function Navbarmain() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light bg-dark text-white mb-5">
+    <Navbar className="navbar navbar-expand-lg navbar-light bg-light bg-dark text-white mb-5">
       <h5 className="mt-1">Projeto3</h5>
       <button
         className="navbar-toggler "
@@ -31,7 +32,7 @@ function Navbar() {
           </li>
           <li className="nav-item">
             <Link className="nav-link text-white" to="#">
-              Histórico
+              Listas Salvas
             </Link>
           </li>
           <li className="nav-item">
@@ -41,8 +42,8 @@ function Navbar() {
           </li>
         </ul>
       </div>
-    </nav>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default Navbarmain;
