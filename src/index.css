@@ -32,9 +32,6 @@ ul.options li.option-active {
   color: #32b62d
 }
 
-.no-options {
-  
-}
 .no-options button {
   background: whitesmoke;
   font-size: 1.2rem;
