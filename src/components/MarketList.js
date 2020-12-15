@@ -16,7 +16,6 @@ function MarketList() {
         );
         delete response.data[0].__v;
         delete response.data[0]._id;
-        console.log(response.data[0]);
         setObjetoOriginal(response.data[0]);
       } catch (err) {
         console.error(err);
