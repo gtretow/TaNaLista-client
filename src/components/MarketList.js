@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Autocomplete from "./compMarketList/Autocomplete";
-import Navbarmain from "./Navbar";
 
 function MarketList() {
   const [objetoOriginal, setObjetoOriginal] = useState({});
@@ -34,8 +33,6 @@ function MarketList() {
 
   return (
     <div>
-      <Navbarmain />
-
       <Autocomplete
         options={listaDeProdutos}
         original={objetoOriginal}
