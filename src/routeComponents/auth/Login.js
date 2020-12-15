@@ -79,13 +79,17 @@ function Login(props) {
           </div>
 
           <div className="text-center form-group">
-            <button className="btn btn-primary" type="submit">
+            <button className="btn btn-primary login" type="submit">
               Login!
             </button>
           </div>
 
-          <div className="text-center form-group">
-            <Link to="/auth/signup">
+          <h5 className="text-center mt-1">
+            Você precisa estar conectado com sua conta para criar, ou acessar
+            suas listas
+          </h5>
+          <div className="text-center form-group ">
+            <Link className="linkcolor" to="/auth/signup">
               Don't have an account? Click here to signup!
             </Link>
           </div>

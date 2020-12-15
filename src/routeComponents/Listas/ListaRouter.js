@@ -1,12 +1,12 @@
 import React from "react";
-import { Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import ListaUpdate from "./ListaUpdate";
 import ListaDelete from "./ListaDelete";
 import MarketList from "../../components/MarketList";
 import HistoryMarketList from "../../components/HistoryMarketList";
 import Navbarmain from "../../components/Navbar";
-
+import About from "../../components/About"
 import PrivateRoute from "../../routeComponents/auth/PrivateRoute";
 
 function ListaRouter(props) {
@@ -20,6 +20,11 @@ function ListaRouter(props) {
             exact
             path={`${props.match.path}/`}
             component={MarketList}
+          />
+           <Route
+            exact
+            path={`${props.match.path}/about`}
+            component={About}
           />
           <PrivateRoute
             path={`${props.match.path}/lista`}
