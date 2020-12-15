@@ -31,14 +31,34 @@ function SelectItens(props) {
             getCategory(props.atual, props.original, props.newCategory)
               .categoria
         ) {
-          stateTemp[i][key].push(
-            getCategory(props.atual, props.original, props.newCategory).produto
-          );
+          stateTemp[i][key].push({
+            produto: getCategory(props.atual, props.original, props.newCategory)
+              .produto,
+            detalhes: "",
+            comprado: false,
+          });
         }
       }
     }
     setListaDND(stateTemp);
   }, [props]);
+
+  function handleChange(event) {
+    console.log(event.currentTarget);
+    let stateTemp = [...listaDND];
+    for (let i = 0; i < stateTemp.length; i++) {
+      for (let key in stateTemp[i]) {
+        if (key === event.currentTarget.category) {
+          stateTemp[i][key].map((prod) =>
+            prod.produto === event.currentTarget.name
+              ? (prod.detalhes = "")
+              : prod
+          );
+        }
+      }
+    }
+    setListaDND(stateTemp);
+  }
   //função drag and drop
   function handleOnDragEnd(result) {
     const items = [...listaDND];
@@ -63,7 +83,7 @@ function SelectItens(props) {
   return (
     <React.Fragment>
       <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId="itemList">
+        <Droppable droppableId="">
           {(provided) => (
             <ul {...provided.droppableProps} ref={provided.innerRef}>
               {listaDND.map((element, idx) => (
@@ -85,7 +105,18 @@ function SelectItens(props) {
                         <></>
                       )}
                       {Object.values(element)[0].map((product, idx) => (
-                        <li key={idx}>{product}</li>
+                        <li key={idx}>
+                          {product.produto}
+                          <input
+                            type="text"
+                            placeholder="Quantidade e Detalhes"
+                            onChange={handleChange}
+                            value={product.detalhes}
+                            name={product.produto}
+                            category={Object.keys(element)}
+                            className="mx-3 inputbar"
+                          />
+                        </li>
                       ))}
                     </div>
                   )}

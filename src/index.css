@@ -4,6 +4,11 @@
 
   border: 1px solid black;
 }
+.inputbar {
+  border-radius: 25px;
+  border: 1px solid black;
+  text-align: center;
+}
 
 .login {
   border-radius: 25px;
@@ -29,7 +34,7 @@ ul.options li:hover {
 ul.options li.option-active {
   background: whitesmoke;
   font-size: 1.2rem;
-  color: #32b62d
+  color: #32b62d;
 }
 
 .no-options button {
