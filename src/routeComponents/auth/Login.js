@@ -85,7 +85,7 @@ function Login(props) {
           </div>
 
           <div className="text-center form-group">
-            <Link to="/signup">
+            <Link to="/auth/signup">
               Don't have an account? Click here to signup!
             </Link>
           </div>

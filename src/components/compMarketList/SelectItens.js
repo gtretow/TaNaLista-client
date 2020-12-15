@@ -46,7 +46,7 @@ function SelectItens(props) {
   }
   async function handleClick(event) {
     const listTodataBase = {
-      IdUser: "5fd83d763c6db713591b50d9",
+      IdUser: "",
       Lista: listaDND,
     };
     try {
@@ -55,6 +55,7 @@ function SelectItens(props) {
         listTodataBase
       );
       window.alert("Lista salva com sucesso!");
+      props.history.push("/menus/listas-salvas");
     } catch (err) {
       console.error(err);
     }

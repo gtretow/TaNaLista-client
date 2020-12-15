@@ -25,7 +25,7 @@ function Signup(props) {
       // eslint-disable-next-line no-unused-vars
       const response = await api.post("/signup", state);
       setErrors({ name: "", password: "", email: "" });
-      props.history.push("/login");
+      props.history.push("/auth/login");
     } catch (err) {
       console.error(err.response);
       setErrors({ ...err.response.data.errors });
@@ -86,7 +86,7 @@ function Signup(props) {
             </button>
           </div>
           <div className="text-center form-group">
-            <Link to="/login">
+            <Link to="/auth/login">
               Already have an account? Click here to login.
             </Link>
           </div>
