@@ -32,16 +32,13 @@ function Signup(props) {
 
   return (
     <div className="">
-      <form
-        className="container   w-25 "
-        onSubmit={handleSubmit}
-      >
+      <form className="container   w-25 " onSubmit={handleSubmit}>
         <h1 className="text-center ">Signup!</h1>
 
         <div className="text-center form-group">
           <label htmlFor="signupFormName">Full Name</label>
           <input
-            className="form-control"
+            className="form-control login"
             placeholder="Name "
             type="text"
             name="name"
@@ -53,10 +50,10 @@ function Signup(props) {
         </div>
 
         <div className="text-center form-group">
-          <label htmlFor="signupFormEmail">E-mail Address</label>
+          <label htmlFor="signupFormEmail ">E-mail Address</label>
           <input
             placeholder="E-maill"
-            className="form-control"
+            className="form-control login"
             type="email"
             name="email"
             id="signupFormEmail"
@@ -70,7 +67,7 @@ function Signup(props) {
           <label htmlFor="signupFormPassword">Password</label>
           <input
             placeholder="Password"
-            className="form-control"
+            className="form-control login"
             type="password"
             name="password"
             id="signupFormPassword"
@@ -86,9 +83,7 @@ function Signup(props) {
           </button>
         </div>
         <div className="text-center form-group">
-          <Link to="/auth/login">
-            Already have an account? Click here to login.
-          </Link>
+          <Link to="/login">Already have an account? Click here to login.</Link>
         </div>
       </form>
     </div>

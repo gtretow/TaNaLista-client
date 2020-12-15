@@ -140,25 +140,27 @@ export class Autocomplete extends Component {
     if (showOptions && userInput) {
       if (filteredOptions.length) {
         optionList = (
-          <ul className="options">
-            {filteredOptions.map((optionName, index) => {
-              let className;
-              if (index === activeOption) {
-                className = "option-active";
-              }
-              return (
-                <li className={className} key={index} onClick={handleClick}>
-                  {optionName}
-                </li>
-              );
-            })}
-          </ul>
+          <div>
+            <ul className="options w-25 text-center ">
+              {filteredOptions.map((optionName, index) => {
+                let className;
+                if (index === activeOption) {
+                  className = "option-active  text-center ";
+                }
+                return (
+                  <li className={className} key={index} onClick={handleClick}>
+                    {optionName}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         );
       }
       //e for um produto novo vai renderizar o else
       else {
         optionList = (
-          <div className="no-options">
+          <div className="no-options mt-3 d-flex justify-content-center ">
             <select className="btn" onChange={handleSelect}>
               {Object.keys(this.props.original).map((category, idx) => (
                 <option key={idx} value={category}>
@@ -166,7 +168,7 @@ export class Autocomplete extends Component {
                 </option>
               ))}
             </select>
-            <button onClick={handleNew} className="btn">
+            <button onClick={handleNew} className="ml-3 btn">
               Inserir novo produto
             </button>
           </div>
@@ -183,6 +185,7 @@ export class Autocomplete extends Component {
           userInput={userInput}
         />
         {optionList}
+
         <SelectItens
           atual={itemSelected}
           original={originalList}
