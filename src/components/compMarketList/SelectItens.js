@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import axios from "axios";
 
+import api from "../../apis/api";
+
 function SelectItens(props) {
   const [listaDND, setListaDND] = useState([
     { Despensa: [] },
@@ -50,10 +52,7 @@ function SelectItens(props) {
       Lista: listaDND,
     };
     try {
-      await axios.post(
-        `${process.env.REACT_APP_API_BASE}/lista`,
-        listTodataBase
-      );
+      await api.post(`${process.env.REACT_APP_API_BASE}/lista`, listTodataBase);
       window.alert("Lista salva com sucesso!");
       props.history.push("/menus/listas-salvas");
     } catch (err) {
