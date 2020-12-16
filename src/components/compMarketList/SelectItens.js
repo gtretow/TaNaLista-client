@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 
 import api from "../../apis/api";
@@ -103,16 +104,16 @@ function SelectItens(props) {
   //o return está com ternário porque no return não aceita if, mas eles olham de o state está prrenchido, e caso esteja rederiza uma tabela com o conteudo do seu respectivo state
   return (
     <React.Fragment>
-      <ul>
+      <ul className="d-flex justify-content-center text-center">
         {listaDND.map((element, idx) => (
           <div>
             {Object.values(element).toString().length > 0 ? (
-              <h3>{Object.keys(element)}</h3>
+              <h3 className="mb-4">{Object.keys(element)}</h3>
             ) : (
               <></>
             )}
             {Object.values(element)[0].map((product, idx) => (
-              <li key={idx}>
+              <li className="mb-4 d-flex" key={idx}>
                 {product.produto}
                 <input
                   type="text"
@@ -128,11 +129,13 @@ function SelectItens(props) {
           </div>
         ))}
       </ul>
+      <div className="d-flex justify-content-center "> 
       {newList ? (
-        <button onClick={handleNew}>Salvar Lista</button>
+        <button className="btn btn-lg btn-primary m-3 login" onClick={handleNew}>Salvar Lista</button>
       ) : (
-        <button onClick={handleEdit}>Editar Lista</button>
+        <button className="btn btn-lg btn-primary m-3 login" onClick={handleEdit}>Editar Lista</button>
       )}
+      </div>
       {show ? (
         <ModalMsg infosModal={props.infosModal} show={show} close={setShow} />
       ) : (

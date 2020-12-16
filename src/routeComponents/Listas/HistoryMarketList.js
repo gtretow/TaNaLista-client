@@ -38,7 +38,6 @@ function HistoryMarketList() {
         <Accordion defaultActiveKey={`${lists.length - 1}`}>
           {lists
             .map((list, idx) => {
-              console.log(`lista no idx ${idx} => ${list._id}`);
               return (
                 <Card key={idx}>
                   <Card.Header>
