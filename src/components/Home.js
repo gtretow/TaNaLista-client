@@ -15,9 +15,6 @@ function Home() {
         <Link className="btn btn-lg btn-primary m-3 login  " to="/auth/signup">
           Criar Conta
         </Link>
-        <Link className="btn btn-lg btn-primary login" to="/menus/lista">
-          Criar Lista
-        </Link>
       </div>
     </Container>
   );
