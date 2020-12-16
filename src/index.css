@@ -1,6 +1,10 @@
 body {
   font-family: "Open Sans";
   font-size: large;
+  background-image: url("https://res.cloudinary.com/drv6bjnwl/image/upload/v1608147607/EnR0ZuZXMAE1uQ6_nc0x8q.jpg");
+  background-size: 50%;
+  background-color: #7fd1c3;
+  padding-top: 4rem;
 }
 
 .containersize {
@@ -42,7 +46,7 @@ body {
   background-color: #469b59;
   border-color: #286836;
 
-  width: 13%;
+  width: 200px;
 }
 
 .btn-primary:hover {
@@ -72,10 +76,6 @@ body {
   color: #fff;
   background-color: #286836;
   border-color: #286836;
-}
-
-.bgcolor {
-  background-color: #ffffff;
 }
 
 .linkcolor {
@@ -119,9 +119,10 @@ ul.options {
 ul.options li {
   border: 1px solid black;
   background: white;
-  margin: 0.7% auto;
+  margin: 3% auto;
   padding: 1%;
   border-radius: 25px;
+  width: 200px;
 }
 ul.options li:hover {
   font-weight: bold;
