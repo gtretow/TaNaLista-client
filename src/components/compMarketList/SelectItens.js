@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import api from "../../apis/api";
 
@@ -11,6 +10,11 @@ function SelectItens(props) {
     { "Frutas e Hortaliças": [] },
     { Higiene: [] },
   ]);
+  const [newList, setNewList] = useState(true);
+
+  useEffect(() => {
+    setNewList(props.newList);
+  }, [props.newList]);
   //função que retorna um objeto com a categoria e o produto selecionado
   function getCategory(product, list, categorySelected) {
     for (let i = 0; i < Object.keys(list).length; i++) {
@@ -19,6 +23,10 @@ function SelectItens(props) {
     }
     return { categoria: categorySelected, produto: product };
   }
+  //atualiza o state caso seja uma edição de lista
+  useEffect(() => {
+    setListaDND(props.edicaoList);
+  }, [props.edicaoList]);
   //useeffect que atualiza os states dependendo de qual categoria é retornada na função acima
   useEffect(() => {
     let stateTemp = [...listaDND];
@@ -40,7 +48,7 @@ function SelectItens(props) {
       }
     }
     setListaDND(stateTemp);
-  }, [props]);
+  }, [props.atual]);
   //altera a quantidade e detalhes no state
   function handleChange(event) {
     let handleTemp = [...listaDND];
@@ -58,7 +66,7 @@ function SelectItens(props) {
     setListaDND(handleTemp);
   }
   //salva a lista no banco de dados com o id do usuário
-  async function handleClick(event) {
+  async function handleNew(event) {
     const listTodataBase = {
       IdUser: "",
       Lista: listaDND,
@@ -67,6 +75,24 @@ function SelectItens(props) {
       await api.post(`${process.env.REACT_APP_API_BASE}/lista`, listTodataBase);
       window.alert("Lista salva com sucesso!");
       props.history.push("/menus/listas-salvas");
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  //salva a lista no banco de dados com o id do usuário
+  async function handleEdit(event) {
+    const listTodataBase = {
+      IdUser: "",
+      Lista: listaDND,
+    };
+    console.log(props);
+    try {
+      await api.patch(
+        `${process.env.REACT_APP_API_BASE}/lista/${props.idLista}`,
+        listTodataBase
+      );
+      //props.history.push("/menus/listas-salvas");
+      window.alert("Lista alterada com sucesso!");
     } catch (err) {
       console.error(err);
     }
@@ -99,7 +125,11 @@ function SelectItens(props) {
           </div>
         ))}
       </ul>
-      <button onClick={handleClick}>Salvar Lista</button>
+      {newList ? (
+        <button onClick={handleNew}>Salvar Lista</button>
+      ) : (
+        <button onClick={handleEdit}>Editar Lista</button>
+      )}
     </React.Fragment>
   );
 }
@@ -107,6 +137,8 @@ function SelectItens(props) {
 export default SelectItens;
 
 /*
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
   //função drag and drop
   function handleOnDragEnd(result) {
     const items = [...listaDND];

@@ -177,6 +177,7 @@ export class Autocomplete extends Component {
     }
     //componente SearchBar é o componete de procura
     //componente SelectItens é o que cria as tabelas automaticamente conforme escolhe os produtos na search, tanto existentes quanto novos.
+
     return (
       <React.Fragment>
         <SearchBar
@@ -190,6 +191,9 @@ export class Autocomplete extends Component {
           atual={itemSelected}
           original={originalList}
           newCategory={categorySelected}
+          edicaoList={this.props.edicaoList}
+          idLista={this.props.idLista}
+          newList={this.props.newList}
         />
       </React.Fragment>
     );

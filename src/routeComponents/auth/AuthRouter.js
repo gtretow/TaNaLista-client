@@ -18,3 +18,4 @@ function AuthRouter(props) {
   );
 }
 
+export default AuthRouter;
