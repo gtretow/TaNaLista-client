@@ -194,6 +194,7 @@ export class Autocomplete extends Component {
           edicaoList={this.props.edicaoList}
           idLista={this.props.idLista}
           newList={this.props.newList}
+          infosModal={this.props.infosModal}
         />
       </React.Fragment>
     );
