@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Accordion, Button, Card } from "react-bootstrap";
+
 import api from "../../apis/api";
+
+import ModalScroll from "../../components/ModalScroll";
 
 function HistoryMarketList() {
   const [lists, setLists] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [show, setShow] = useState({ modal: false, product: "" });
 
   useEffect(() => {
     async function fetchLists() {
@@ -23,6 +27,10 @@ function HistoryMarketList() {
 
     fetchLists();
   }, []);
+
+  const handleClick = (event) => {
+    setShow({ modal: true, product: event.currentTarget.name });
+  };
 
   function renderAccordion() {
     if (loading === false) {
@@ -61,6 +69,12 @@ function HistoryMarketList() {
                         {list.Lista[0].Despensa.map((eachItem, i) => {
                           return (
                             <li key={i}>
+                              <button
+                                onClick={handleClick}
+                                name={eachItem.produto}
+                              >
+                                Imagens do produto
+                              </button>
                               {eachItem.produto} - {eachItem.detalhes}
                             </li>
                           );
@@ -71,6 +85,12 @@ function HistoryMarketList() {
                         {list.Lista[1].Freezer.map((eachItem, i) => {
                           return (
                             <li key={i}>
+                              <button
+                                onClick={handleClick}
+                                name={eachItem.produto}
+                              >
+                                Imagens do produto
+                              </button>
                               {eachItem.produto} - {eachItem.detalhes}
                             </li>
                           );
@@ -81,6 +101,12 @@ function HistoryMarketList() {
                         {list.Lista[2].Geladeira.map((eachItem, i) => {
                           return (
                             <li key={i}>
+                              <button
+                                onClick={handleClick}
+                                name={eachItem.produto}
+                              >
+                                Imagens do produto
+                              </button>
                               {eachItem.produto} - {eachItem.detalhes}
                             </li>
                           );
@@ -92,6 +118,12 @@ function HistoryMarketList() {
                           (eachItem, i) => {
                             return (
                               <li key={i}>
+                                <button
+                                  onClick={handleClick}
+                                  name={eachItem.produto}
+                                >
+                                  Imagens do produto
+                                </button>
                                 {eachItem.produto} - {eachItem.detalhes}
                               </li>
                             );
@@ -103,6 +135,12 @@ function HistoryMarketList() {
                         {list.Lista[4].Higiene.map((eachItem, i) => {
                           return (
                             <li key={i}>
+                              <button
+                                onClick={handleClick}
+                                name={eachItem.produto}
+                              >
+                                Imagens do produto
+                              </button>
                               {eachItem.produto} - {eachItem.detalhes}
                             </li>
                           );
@@ -119,7 +157,23 @@ function HistoryMarketList() {
     }
   }
 
-  return <div>{renderAccordion()}</div>;
+  return (
+    <div>
+      {renderAccordion()}
+      {show.modal ? (
+        <ModalScroll
+          infosModal={{
+            titulo: "Imagens relacionadas ao produto",
+            conteudo: show.product,
+          }}
+          show={show.modal}
+          close={setShow}
+        />
+      ) : (
+        <></>
+      )}
+    </div>
+  );
 }
 
 export default HistoryMarketList;

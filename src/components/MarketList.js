@@ -37,6 +37,11 @@ function MarketList() {
         options={listaDeProdutos}
         original={objetoOriginal}
         newList={true}
+        infosModal={{
+          titulo: "Criação de lista",
+          conteudo: "Lista salva com sucesso!",
+          redirecionamento: "/menus/listas-salvas",
+        }}
         className="p-2 w-2 "
       />
     </div>
