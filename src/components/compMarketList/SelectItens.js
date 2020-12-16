@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import axios from "axios";
 
 import api from "../../apis/api";
 
@@ -42,30 +41,23 @@ function SelectItens(props) {
     }
     setListaDND(stateTemp);
   }, [props]);
-
+  //altera a quantidade e detalhes no state
   function handleChange(event) {
-    console.log(event.currentTarget);
-    let stateTemp = [...listaDND];
-    for (let i = 0; i < stateTemp.length; i++) {
-      for (let key in stateTemp[i]) {
-        if (key === event.currentTarget.category) {
-          stateTemp[i][key].map((prod) =>
-            prod.produto === event.currentTarget.name
-              ? (prod.detalhes = "")
-              : prod
-          );
+    let handleTemp = [...listaDND];
+    for (let i = 0; i < handleTemp.length; i++) {
+      for (let key in handleTemp[i]) {
+        if (key === event.currentTarget.id) {
+          for (let ii = 0; ii < handleTemp[i][key].length; ii++) {
+            if (handleTemp[i][key][ii].produto === event.currentTarget.name) {
+              handleTemp[i][key][ii].detalhes = event.currentTarget.value;
+            }
+          }
         }
       }
     }
-    setListaDND(stateTemp);
+    setListaDND(handleTemp);
   }
-  //função drag and drop
-  function handleOnDragEnd(result) {
-    const items = [...listaDND];
-    const [reordedItems] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reordedItems);
-    setListaDND(items);
-  }
+  //salva a lista no banco de dados com o id do usuário
   async function handleClick(event) {
     const listTodataBase = {
       IdUser: "",
@@ -82,6 +74,47 @@ function SelectItens(props) {
   //o return está com ternário porque no return não aceita if, mas eles olham de o state está prrenchido, e caso esteja rederiza uma tabela com o conteudo do seu respectivo state
   return (
     <React.Fragment>
+      <ul>
+        {listaDND.map((element, idx) => (
+          <div>
+            {Object.values(element).toString().length > 0 ? (
+              <h3>{Object.keys(element)}</h3>
+            ) : (
+              <></>
+            )}
+            {Object.values(element)[0].map((product, idx) => (
+              <li key={idx}>
+                {product.produto}
+                <input
+                  type="text"
+                  placeholder="Quantidade e Detalhes"
+                  onChange={handleChange}
+                  value={product.detalhes}
+                  name={product.produto}
+                  id={Object.keys(element)}
+                  className="mx-3 inputbar"
+                />
+              </li>
+            ))}
+          </div>
+        ))}
+      </ul>
+      <button onClick={handleClick}>Salvar Lista</button>
+    </React.Fragment>
+  );
+}
+
+export default SelectItens;
+
+/*
+  //função drag and drop
+  function handleOnDragEnd(result) {
+    const items = [...listaDND];
+    const [reordedItems] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reordedItems);
+    setListaDND(items);
+  }
+
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="">
           {(provided) => (
@@ -127,24 +160,4 @@ function SelectItens(props) {
           )}
         </Droppable>
       </DragDropContext>
-      <button onClick={handleClick}>Salvar Lista</button>
-    </React.Fragment>
-  );
-}
-
-export default SelectItens;
-
-/*
-                        Object.values(element)[0].filter((e) => e === product)
-                          .length <= 0 ? (
-                          <></>
-                        ) : (
-                          <li key={idx}>{product}</li>
-                        );
-
-                        console.log(
-                          Object.values(element)[0].filter((e) => e === product)
-                            .length
-                            );
-
 */
