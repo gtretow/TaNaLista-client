@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import api from "../../apis/api";
 
+import ModalMsg from "../ModalMsg";
+
 function SelectItens(props) {
   const [listaDND, setListaDND] = useState([
     { Despensa: [] },
@@ -11,6 +13,7 @@ function SelectItens(props) {
     { Higiene: [] },
   ]);
   const [newList, setNewList] = useState(true);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     setNewList(props.newList);
@@ -65,6 +68,9 @@ function SelectItens(props) {
     }
     setListaDND(handleTemp);
   }
+  //funções responsáveis por aparecer e esconder o modal
+  const handleShow = () => setShow(true);
+
   //salva a lista no banco de dados com o id do usuário
   async function handleNew(event) {
     const listTodataBase = {
@@ -73,8 +79,7 @@ function SelectItens(props) {
     };
     try {
       await api.post(`${process.env.REACT_APP_API_BASE}/lista`, listTodataBase);
-      window.alert("Lista salva com sucesso!");
-      props.history.push("/menus/listas-salvas");
+      handleShow();
     } catch (err) {
       console.error(err);
     }
@@ -85,14 +90,12 @@ function SelectItens(props) {
       IdUser: "",
       Lista: listaDND,
     };
-    console.log(props);
     try {
       await api.patch(
         `${process.env.REACT_APP_API_BASE}/lista/${props.idLista}`,
         listTodataBase
       );
-      //props.history.push("/menus/listas-salvas");
-      window.alert("Lista alterada com sucesso!");
+      handleShow();
     } catch (err) {
       console.error(err);
     }
@@ -129,6 +132,11 @@ function SelectItens(props) {
         <button onClick={handleNew}>Salvar Lista</button>
       ) : (
         <button onClick={handleEdit}>Editar Lista</button>
+      )}
+      {show ? (
+        <ModalMsg infosModal={props.infosModal} show={show} close={setShow} />
+      ) : (
+        <></>
       )}
     </React.Fragment>
   );
