@@ -5,8 +5,8 @@ import { Navbar } from "react-bootstrap";
 
 function Navbarmain() {
   return (
-    <Navbar className="navbar navbar-expand-lg  navbar-light  bg-dark mb-5">
-      <h5 className="mt-1 text-white ">Projeto3</h5>
+    <Navbar className="navbar navbar-expand-lg  navbar-light  bg-dark mb-5 pt-3 pb-3">
+      <h5 className="mt-1 text-white mr-3">Projeto3</h5>
       <button
         className="navbar-toggler "
         type="button"
