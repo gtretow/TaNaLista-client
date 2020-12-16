@@ -1,20 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
-
+//previewURL
 function ModalScroll(props) {
   const handleClick = () => {
     props.close({ modal: false, product: "" });
   };
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     async function fetchImages() {
       try {
         const response = await axios.get(
-          `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_TOKEN}&q=yellow+flowers&image_type=photo`
+          `https://pixabay.com/api/?key=${
+            process.env.REACT_APP_PIXABAY_TOKEN
+          }&q=${props.infosModal.conteudo
+            .toLowerCase()
+            .replaceAll(" ", "+")}&image_type=photo`
         );
-        console.log(response);
-        console.log(props.infosModal.conteudo);
+        response.data.hits.length > 0
+          ? setImages(response.data.hits.map((e) => e.previewURL))
+          : setImages(["Imagem não encontrada"]);
+
+        //console.log(props.infosModal.conteudo.toLowerCase().replaceAll(" ", "+"));
       } catch (err) {
         console.error(err);
       }
@@ -36,47 +44,13 @@ function ModalScroll(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
-        {props.infosModal.conteudo}
+        {images.map((url, idx) => (
+          <img
+            key={idx}
+            src={url}
+            alt={props.infosModal.conteudo + " " + idx}
+          />
+        ))}
       </Modal.Body>
       <Modal.Footer>
         <button variant="secondary" onClick={handleClick}>
