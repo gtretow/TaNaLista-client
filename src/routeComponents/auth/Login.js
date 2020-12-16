@@ -43,15 +43,15 @@ function Login(props) {
 
   return (
     <Container>
-      <div className="">
+      <div>
         <form
-          className=" container  align-items-center  w-75 "
+          className=" container  align-items-center  w-75 midpage"
           onSubmit={handleSubmit}
         >
-          <h1 className="text-center   ">Login</h1>
+          <h1 className="text-center  ">Conectar-se</h1>
 
           <div className="text-center form-group">
-            <label htmlFor="signupFormEmail">E-mail Address</label>
+            <label htmlFor="signupFormEmail">Endereço de E-mail</label>
             <input
               className="form-control login "
               placeholder="E-mail"
@@ -65,7 +65,7 @@ function Login(props) {
           </div>
 
           <div className="text-center form-group">
-            <label htmlFor="signupFormPassword">Password</label>
+            <label htmlFor="signupFormPassword">Senha</label>
             <input
               className="form-control login"
               placeholder="Password"
@@ -80,7 +80,7 @@ function Login(props) {
 
           <div className="text-center form-group">
             <button className="btn btn-primary login" type="submit">
-              Login!
+              Conectar-se!
             </button>
           </div>
 
@@ -90,7 +90,7 @@ function Login(props) {
           </h5>
           <div className="text-center form-group ">
             <Link className="linkcolor" to="/auth/signup">
-              Don't have an account? Click here to signup!
+              Não tem uma conta? Clique aqui para registrar-se!
             </Link>
           </div>
         </form>
