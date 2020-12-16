@@ -38,6 +38,7 @@ function HistoryMarketList() {
         <Accordion defaultActiveKey={`${lists.length - 1}`}>
           {lists
             .map((list, idx) => {
+              console.log(`lista no idx ${idx} => ${list._id}`);
               return (
                 <Card key={idx}>
                   <Card.Header>
@@ -48,10 +49,16 @@ function HistoryMarketList() {
                     >
                       Lista {`${idx + 1}`}
                       <Link
-                        className="mx-3 btn  login"
+                        className="mx-3 btn login"
                         to={`/menus/${list._id}`}
                       >
                         Editar Lista
+                      </Link>
+                      <Link
+                        className="mx-3 btn login"
+                        to={`/menus/delete/${list._id}`}
+                      >
+                        Deletar Lista
                       </Link>
                     </Accordion.Toggle>
                   </Card.Header>
