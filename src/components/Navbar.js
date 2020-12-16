@@ -1,68 +1,51 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
 function Navbarmain() {
   let history = useHistory();
 
   return (
-    <div>
-      <Navbar className="navbar navbar-expand-lg  navbar-light  bg-dark mb-5 pt-3 pb-3">
-        <Navbar.Brand className=" text-white mr-2">Projeto3</Navbar.Brand>
-        <button
-          className="navbar-toggler "
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+    <Navbar
+      fixed="top"
+      bg="dark"
+      expand="lg"
+      className="mb-5 py-3 navbar-light"
+    >
+      <Navbar.Brand as={Link} to="/" className="text-white mr-2">
+        Projeto3
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav.Link as={Link} to="/menus/lista" className="active text-white">
+          Criar Lista
+        </Nav.Link>
+        <Nav.Link
+          as={Link}
+          to="/menus/listas-salvas"
+          className="active text-white"
         >
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        </button>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav>
-            <ul className="navbar-nav ">
-              <li className="nav-item active ">
-                <Link className="nav-link text-white" to="/">
-                  Home <span className="sr-only">(current)</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link text-white" to="/menus/lista">
-                  Criar Lista
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link text-white" to="/menus/listas-salvas">
-                  Listas Salvas
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link text-white" to="/menus/about">
-                  Sobre os Criadores
-                </Link>
-              </li>
+          Listas Salvas
+        </Nav.Link>
+        <Nav.Link as={Link} to="/menus/about" className="active text-white">
+          Sobre
+        </Nav.Link>
+        <Nav className="ml-auto">
+          <Button
+            className="btn-outline-success"
+            onClick={() => {
+              localStorage.clear();
 
-              <li className="nav-item  ">
-                <button
-                  className="btn btn-outline-success mt-1  "
-                  onClick={() => {
-                    localStorage.clear();
-
-                    history.push("/");
-                  }}
-                >
-                  Sair
-                </button>
-              </li>
-            </ul>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    </div>
+              history.push("/");
+            }}
+          >
+            Sair
+          </Button>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }
 
