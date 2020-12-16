@@ -55,6 +55,11 @@ const ListaUpdate = (props) => {
         edicaoList={listaEditada}
         idLista={props.match.params.id}
         newList={false}
+        infosModal={{
+          titulo: "Alteração de lista",
+          conteudo: "Lista alterada com sucesso!",
+          redirecionamento: "/menus/listas-salvas",
+        }}
         className="p-2 w-2 "
       />
     </div>
