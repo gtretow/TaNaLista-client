@@ -31,13 +31,13 @@ function ListaRouter(props) {
             component={HistoryMarketList}
           />
           <PrivateRoute
-            path={`${props.match.path}/:id`}
-            component={ListaUpdate}
-          />
-          <PrivateRoute
             exact
             path={`${props.match.path}/delete/:id`}
             component={ListaDelete}
+          />
+          <PrivateRoute
+            path={`${props.match.path}/:id`}
+            component={ListaUpdate}
           />
         </Switch>
       </div>
