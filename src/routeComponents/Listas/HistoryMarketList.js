@@ -31,7 +31,7 @@ function HistoryMarketList() {
         <Accordion defaultActiveKey="0">
           {lists.map((list, idx) => {
             return (
-              <Card>
+              <Card key={idx}>
                 <Card.Header>
                   <Accordion.Toggle
                     as={Button}
@@ -43,11 +43,38 @@ function HistoryMarketList() {
                 </Card.Header>
                 <Accordion.Collapse eventKey={`${idx}`}>
                   <Card.Body>
-                    <p>Despensa</p>
-                    <p>Freezer</p>
-                    <p>Geladeira</p>
-                    <p>Frutas e Hortaliças</p>
-                    <p>Higiene</p>
+                    <p className="font-weight-bold">Despensa</p>
+                    <ul>
+                      {list.Lista[0].Despensa.map((eachItem, i) => {
+                        return <li key={i}>{eachItem}</li>;
+                      })}
+                    </ul>
+                    <p className="font-weight-bold">Freezer</p>
+                    <ul>
+                      {list.Lista[1].Freezer.map((eachItem, i) => {
+                        return <li key={i}>{eachItem}</li>;
+                      })}
+                    </ul>
+                    <p className="font-weight-bold">Geladeira</p>
+                    <ul>
+                      {list.Lista[2].Geladeira.map((eachItem, i) => {
+                        return <li key={i}>{eachItem}</li>;
+                      })}
+                    </ul>
+                    <p className="font-weight-bold">Frutas e Hortaliças</p>
+                    <ul>
+                      {list.Lista[3]["Frutas e Hortaliças"].map(
+                        (eachItem, i) => {
+                          return <li key={i}>{eachItem}</li>;
+                        }
+                      )}
+                    </ul>
+                    <p className="font-weight-bold">Higiene</p>
+                    <ul>
+                      {list.Lista[4].Higiene.map((eachItem, i) => {
+                        return <li key={i}>{eachItem}</li>;
+                      })}
+                    </ul>
                   </Card.Body>
                 </Accordion.Collapse>
               </Card>
