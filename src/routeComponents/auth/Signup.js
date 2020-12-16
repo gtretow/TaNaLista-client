@@ -35,11 +35,11 @@ function Signup(props) {
   return (
     <Container>
       <div className="">
-        <form className="container   w-75 " onSubmit={handleSubmit}>
-          <h1 className="text-center ">Signup!</h1>
+        <form className="container  w-75 midpage " onSubmit={handleSubmit}>
+          <h1 className="text-center ">Registar-se!</h1>
 
           <div className="text-center form-group">
-            <label htmlFor="signupFormName">Full Name</label>
+            <label htmlFor="signupFormName">Nome Completo</label>
             <input
               className="form-control login"
               placeholder="Name "
@@ -53,7 +53,7 @@ function Signup(props) {
           </div>
 
           <div className="text-center form-group">
-            <label htmlFor="signupFormEmail ">E-mail Address</label>
+            <label htmlFor="signupFormEmail ">Endereço de E-mail</label>
             <input
               placeholder="E-maill"
               className="form-control login"
@@ -67,7 +67,7 @@ function Signup(props) {
           </div>
 
           <div className="text-center form-group">
-            <label htmlFor="signupFormPassword">Password</label>
+            <label htmlFor="signupFormPassword">Senha</label>
             <input
               placeholder="Password"
               className="form-control login"
@@ -80,14 +80,14 @@ function Signup(props) {
             />
           </div>
 
-          <div className="text-center form-group">
-            <button className="btn btn-primary" type="submit">
-              Signup!
+          <div className="text-center form-group ">
+            <button className="btn btn-primary login " type="submit">
+              Registrar-se!
             </button>
           </div>
           <div className="text-center form-group">
-            <Link to="/auth/login">
-              Already have an account? Click here to login.
+            <Link className="linkcolor" to="/auth/login">
+              Já tem uma conta? Clique aqui para conectar-se.
             </Link>
           </div>
         </form>
