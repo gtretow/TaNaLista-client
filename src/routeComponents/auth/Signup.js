@@ -80,13 +80,13 @@ function Signup(props) {
             />
           </div>
 
-          <div className="text-center form-group">
-            <button className="btn btn-primary" type="submit">
+          <div className="text-center form-group ">
+            <button className="btn btn-primary login " type="submit">
               Signup!
             </button>
           </div>
           <div className="text-center form-group">
-            <Link to="/auth/login">
+            <Link className="linkcolor" to="/auth/login">
               Already have an account? Click here to login.
             </Link>
           </div>
