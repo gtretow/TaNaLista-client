@@ -140,8 +140,8 @@ export class Autocomplete extends Component {
     if (showOptions && userInput) {
       if (filteredOptions.length) {
         optionList = (
-          <div>
-            <ul className="options w-25 text-center ">
+          <div className="d-flex justify-content-center">
+            <ul className="options  text-center mr-5 ">
               {filteredOptions.map((optionName, index) => {
                 let className;
                 if (index === activeOption) {
