@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import AuthRouter from "./routeComponents/auth/AuthRouter";
 import ListaRouter from "./routeComponents/Listas/ListaRouter";
 import { AuthContextComponent } from "./contexts/authContext";
-
+import Footer from "./components/footer/Footer"
 // Rota "/" é a da página inicial, onde o usuário clica no botão login
 // Rota "/about" vai para uma pagina de about
 // Rota "/auth" vai para as paginas de login a signup
@@ -13,6 +13,7 @@ import { AuthContextComponent } from "./contexts/authContext";
 
 function App() {
   return (
+    <div>
     <BrowserRouter>
       <AuthContextComponent>
         <Switch>
@@ -21,7 +22,12 @@ function App() {
           <Route path="/menus" component={ListaRouter} />
         </Switch>
       </AuthContextComponent>
+
+      
     </BrowserRouter>
+    
+    <Footer></Footer>
+    </div>
   );
 }
 
