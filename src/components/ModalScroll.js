@@ -14,6 +14,7 @@ function ModalScroll(props) {
           `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_TOKEN}&q=yellow+flowers&image_type=photo`
         );
         console.log(response);
+        console.log(props.infosModal.conteudo);
       } catch (err) {
         console.error(err);
       }
