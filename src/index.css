@@ -1,13 +1,116 @@
+body {
+  font-family: "Open Sans";
+  font-size: large;
+}
+
+.containersize {
+  height: 100vh;
+  width: 500vw;
+}
+
+.midpage {
+  height: 50%;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+
 .searchBar {
-  width: 700px;
+  width: 50%;
   border-radius: 25px;
 
   border: 1px solid black;
 }
+.inputbar {
+  border-radius: 25px;
+  border: 1px solid black;
+  text-align: center;
+}
 
 .login {
   border-radius: 25px;
+  height: 10%;
 }
+
+.btn-primary {
+  color: #fff;
+  background-color: #469b59;
+  border-color: #286836;
+
+  width: 13%;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #286836;
+  border-color: #286836;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #286836;
+  border-color: #286836;
+  box-shadow: 0 0 0 0.2rem rgba(25, 88, 12, 0.5);
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  color: #fff;
+  background-color: #286836;
+  border-color: #286836;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #286836;
+  border-color: #286836;
+}
+
+.bgcolor {
+  background-color: #ffffff;
+}
+
+.linkcolor {
+  color: #469b59;
+}
+
+.linkcolor:hover {
+  color: #286836;
+}
+
+.nav:hover {
+  color: #286836;
+}
+
+.bg-dark {
+  background-color: #393b39 !important;
+}
+
+.text-white:hover {
+  color: #286836 !important;
+}
+
+.text-primary {
+  color: #469b59 !important;
+}
+
+.bg-danger {
+  background-color: #caebca !important;
+}
+
+.text-danger {
+  color: #393b39 !important;
+}
+
+/* css da tabela */
 
 ul.options {
   list-style: none;
@@ -22,27 +125,27 @@ ul.options li {
 }
 ul.options li:hover {
   font-weight: bold;
-  color: #32b62d;
+  color: #286836;
   cursor: pointer;
   transition: 0.2s all;
 }
 ul.options li.option-active {
   background: whitesmoke;
   font-size: 1.2rem;
-  color: #32b62d
+  color: #32b62d;
 }
 
 .no-options button {
   background: whitesmoke;
   font-size: 1.2rem;
-  color: #00b4cc;
+  color: #32b62d;
   border-radius: 25px;
   border: none;
 }
 .no-options select {
   background: whitesmoke;
   font-size: 1.2rem;
-  color: #00b4cc;
+  color: #32b62d;
   border-radius: 25px;
   border: none;
 }
