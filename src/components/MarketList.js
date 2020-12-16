@@ -36,6 +36,7 @@ function MarketList() {
       <Autocomplete
         options={listaDeProdutos}
         original={objetoOriginal}
+        newList={true}
         className="p-2 w-2 "
       />
     </div>
