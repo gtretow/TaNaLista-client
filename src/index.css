@@ -6,6 +6,13 @@ body {
   padding-bottom: 7rem;
 }
 
+.svg-css {
+  height: 50px;
+  width: 50px;
+  color: #c2fff5;
+  fill: #c2fff5;
+}
+
 .backgroundimg {
   background-image: url("https://res.cloudinary.com/drv6bjnwl/image/upload/v1608147607/EnR0ZuZXMAE1uQ6_nc0x8q.jpg");
   background-repeat: no-repeat;
