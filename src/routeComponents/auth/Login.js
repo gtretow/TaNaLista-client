@@ -53,7 +53,7 @@ function Login(props) {
           <div className="text-center form-group">
             <label htmlFor="signupFormEmail">Endereço de E-mail</label>
             <input
-              className="form-control login "
+              className="form-control login inputcolor "
               placeholder="E-mail"
               type="email"
               name="email"
@@ -67,7 +67,7 @@ function Login(props) {
           <div className="text-center form-group">
             <label htmlFor="signupFormPassword">Senha</label>
             <input
-              className="form-control login"
+              className="form-control login inputcolor"
               placeholder="Password"
               type="password"
               name="password"
@@ -79,7 +79,7 @@ function Login(props) {
           </div>
 
           <div className="text-center form-group">
-            <button className="btn btn-primary login" type="submit">
+            <button className="btn btn-dark login" type="submit">
               Conectar-se!
             </button>
           </div>

@@ -32,9 +32,10 @@ function Navbarmain() {
         <Nav.Link as={Link} to="/menus/about" className="active text-white">
           Sobre
         </Nav.Link>
-        <Nav className="ml-auto">
+        <Nav className="ml-auto ">
           <Button
-            className="btn-outline-success"
+            className="custom-btn"
+          
             onClick={() => {
               localStorage.clear();
 

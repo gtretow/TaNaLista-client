@@ -39,15 +39,17 @@ function HistoryMarketList() {
           {lists
             .map((list, idx) => {
               return (
-                <Card key={idx}>
-                  <Card.Header>
+                <Card className="bghistory3" key={idx}>
+                  <Card.Header className="bghistory2">
                     <Accordion.Toggle
+                    className="linkcolor "
                       as={Button}
                       variant="link"
                       eventKey={`${idx}`}
                     >
                       Lista {`${idx + 1}`}
                       <Link
+                      
                         className="mx-3 btn login"
                         to={`/menus/${list._id}`}
                       >
@@ -62,13 +64,14 @@ function HistoryMarketList() {
                     </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey={`${idx}`}>
-                    <Card.Body>
+                    <Card.Body className="bghistory1" >
                       <p className="font-weight-bold">Despensa</p>
-                      <ul>
+                      <ul className="removedot">
                         {list.Lista[0].Despensa.map((eachItem, i) => {
                           return (
                             <li key={i}>
                               <button
+                                className="btn btn-lg  btn-danger m-2 login"
                                 onClick={handleClick}
                                 name={eachItem.produto}
                               >
@@ -80,11 +83,12 @@ function HistoryMarketList() {
                         })}
                       </ul>
                       <p className="font-weight-bold">Freezer</p>
-                      <ul>
+                      <ul className="removedot">
                         {list.Lista[1].Freezer.map((eachItem, i) => {
                           return (
                             <li key={i}>
                               <button
+                                className="btn btn-lg btn-danger m-2 login"
                                 onClick={handleClick}
                                 name={eachItem.produto}
                               >
@@ -101,6 +105,7 @@ function HistoryMarketList() {
                           return (
                             <li key={i}>
                               <button
+                                className="btn btn-lg  btn-danger m-2 login"
                                 onClick={handleClick}
                                 name={eachItem.produto}
                               >
@@ -112,12 +117,13 @@ function HistoryMarketList() {
                         })}
                       </ul>
                       <p className="font-weight-bold">Frutas e Hortaliças</p>
-                      <ul>
+                      <ul className="removedot">
                         {list.Lista[3]["Frutas e Hortaliças"].map(
                           (eachItem, i) => {
                             return (
                               <li key={i}>
                                 <button
+                                  className="btn btn-lg  btn-danger m-2 login"
                                   onClick={handleClick}
                                   name={eachItem.produto}
                                 >
@@ -130,11 +136,12 @@ function HistoryMarketList() {
                         )}
                       </ul>
                       <p className="font-weight-bold">Higiene</p>
-                      <ul>
+                      <ul className="removedot">
                         {list.Lista[4].Higiene.map((eachItem, i) => {
                           return (
                             <li key={i}>
                               <button
+                                className="btn btn-lg  btn-danger m-2 login"
                                 onClick={handleClick}
                                 name={eachItem.produto}
                               >

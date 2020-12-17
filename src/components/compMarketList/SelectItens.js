@@ -131,9 +131,9 @@ function SelectItens(props) {
       </ul>
       <div className="d-flex justify-content-center "> 
       {newList ? (
-        <button className="btn btn-lg btn-primary m-3 login" onClick={handleNew}>Salvar Lista</button>
+        <button className="btn btn-lg btn-dark m-3 login" onClick={handleNew}>Salvar Lista</button>
       ) : (
-        <button className="btn btn-lg btn-primary m-3 login" onClick={handleEdit}>Editar Lista</button>
+        <button className="btn btn-lg btn-dark m-3 login" onClick={handleEdit}>Editar Lista</button>
       )}
       </div>
       {show ? (
