@@ -145,7 +145,7 @@ export class Autocomplete extends Component {
               {filteredOptions.map((optionName, index) => {
                 let className;
                 if (index === activeOption) {
-                  className = "option-active  text-center ";
+                  className = "option-active inputcolor  text-center ";
                 }
                 return (
                   <li className={className} key={index} onClick={handleClick}>
@@ -168,7 +168,7 @@ export class Autocomplete extends Component {
                 </option>
               ))}
             </select>
-            <button onClick={handleNew} className="ml-3 btn">
+            <button onClick={handleNew} className="ml-3 btn  login">
               Inserir novo produto
             </button>
           </div>
