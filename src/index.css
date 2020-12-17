@@ -1,13 +1,17 @@
 body {
   font-family: "Open Sans";
-
-  font-size: 21px;
-  background-image: url("https://res.cloudinary.com/drv6bjnwl/image/upload/v1608147607/EnR0ZuZXMAE1uQ6_nc0x8q.jpg");
-  background-size: 50%;
   background-color: #7fd1c3;
+  font-size: 1.5rem;
   padding-top: 7rem;
   padding-bottom: 7rem;
 }
+
+.backgroundimg {
+  background-image: url("https://res.cloudinary.com/drv6bjnwl/image/upload/v1608147607/EnR0ZuZXMAE1uQ6_nc0x8q.jpg");
+  background-repeat: no-repeat;
+  background-position: center 40vh;
+}
+
 .custom-btn {
   color: #fff;
   background-color: #7fd1c3;

@@ -35,7 +35,7 @@ function Navbarmain() {
         to="/menus/listas-salvas"
         className="text-white mr-2"
       >
-        TaNaLista!
+        <h4>TaNaLista</h4>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -43,17 +43,17 @@ function Navbarmain() {
           Minha Conta
         </Nav.Link>
         <Nav.Link as={Link} to="/menus/lista" className="active text-white">
-          Criar Lista
+          <h4>Criar Lista</h4>
         </Nav.Link>
         <Nav.Link
           as={Link}
           to="/menus/listas-salvas"
           className="active text-white"
         >
-          Listas Salvas
+          <h4>Listas Salvas</h4>
         </Nav.Link>
         <Nav.Link as={Link} to="/menus/about" className="active text-white">
-          Sobre
+          <h4>Sobre</h4>
         </Nav.Link>
         <Nav className="ml-auto ">
           <p className="active text-white mr-3">

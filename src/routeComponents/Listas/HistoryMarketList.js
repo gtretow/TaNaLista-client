@@ -42,34 +42,37 @@ function HistoryMarketList() {
                 <Card className="bghistory3" key={idx}>
                   <Card.Header className="bghistory2">
                     <Accordion.Toggle
-                    className="linkcolor "
+                      className="linkcolor "
                       as={Button}
                       variant="link"
                       eventKey={`${idx}`}
                     >
                       Lista {`${idx + 1}`}
-                      <Link
-                      
-                        className="mx-3 btn login"
-                        to={`/menus/${list._id}`}
-                      >
-                        Editar Lista
-                      </Link>
-                      <Link
-                        className="mx-3 btn login"
-                        to={`/menus/delete/${list._id}`}
-                      >
-                        Deletar Lista
-                      </Link>
                     </Accordion.Toggle>
+
+                    <Button
+                      as={Link}
+                      className="float-right mx-3 btn login text-white"
+                      to={`/menus/delete/${list._id}`}
+                    >
+                      Deletar Lista
+                    </Button>
+                    <Button
+                      as={Link}
+                      className="float-right mx-3 btn login text-white"
+                      to={`/menus/${list._id}`}
+                    >
+                      Editar Lista
+                    </Button>
                   </Card.Header>
                   <Accordion.Collapse eventKey={`${idx}`}>
-                    <Card.Body className="bghistory1" >
+                    <Card.Body className="bghistory1">
                       <p className="font-weight-bold">Despensa</p>
                       <ul className="removedot">
                         {list.Lista[0].Despensa.map((eachItem, i) => {
                           return (
                             <li key={i}>
+                              {eachItem.produto} - {eachItem.detalhes}
                               <button
                                 className="btn btn-lg  btn-danger m-2 login"
                                 onClick={handleClick}
@@ -77,7 +80,6 @@ function HistoryMarketList() {
                               >
                                 Imagens do produto
                               </button>
-                              {eachItem.produto} - {eachItem.detalhes}
                             </li>
                           );
                         })}
@@ -87,6 +89,7 @@ function HistoryMarketList() {
                         {list.Lista[1].Freezer.map((eachItem, i) => {
                           return (
                             <li key={i}>
+                              {eachItem.produto} - {eachItem.detalhes}
                               <button
                                 className="btn btn-lg btn-danger m-2 login"
                                 onClick={handleClick}
@@ -94,7 +97,6 @@ function HistoryMarketList() {
                               >
                                 Imagens do produto
                               </button>
-                              {eachItem.produto} - {eachItem.detalhes}
                             </li>
                           );
                         })}
@@ -104,6 +106,7 @@ function HistoryMarketList() {
                         {list.Lista[2].Geladeira.map((eachItem, i) => {
                           return (
                             <li key={i}>
+                              {eachItem.produto} - {eachItem.detalhes}
                               <button
                                 className="btn btn-lg  btn-danger m-2 login"
                                 onClick={handleClick}
@@ -111,7 +114,6 @@ function HistoryMarketList() {
                               >
                                 Imagens do produto
                               </button>
-                              {eachItem.produto} - {eachItem.detalhes}
                             </li>
                           );
                         })}
@@ -122,6 +124,7 @@ function HistoryMarketList() {
                           (eachItem, i) => {
                             return (
                               <li key={i}>
+                                {eachItem.produto} - {eachItem.detalhes}
                                 <button
                                   className="btn btn-lg  btn-danger m-2 login"
                                   onClick={handleClick}
@@ -129,7 +132,6 @@ function HistoryMarketList() {
                                 >
                                   Imagens do produto
                                 </button>
-                                {eachItem.produto} - {eachItem.detalhes}
                               </li>
                             );
                           }
@@ -140,6 +142,7 @@ function HistoryMarketList() {
                         {list.Lista[4].Higiene.map((eachItem, i) => {
                           return (
                             <li key={i}>
+                              {eachItem.produto} - {eachItem.detalhes}
                               <button
                                 className="btn btn-lg  btn-danger m-2 login"
                                 onClick={handleClick}
@@ -147,7 +150,6 @@ function HistoryMarketList() {
                               >
                                 Imagens do produto
                               </button>
-                              {eachItem.produto} - {eachItem.detalhes}
                             </li>
                           );
                         })}
