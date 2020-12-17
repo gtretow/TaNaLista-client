@@ -37,7 +37,7 @@ function Signup(props) {
   return (
     <Container>
       <div className="">
-        <form className="container  w-75 midpage " onSubmit={handleSubmit}>
+        <form className="container  w-75" onSubmit={handleSubmit}>
           <h1 className="text-center bghistory3 bghistory2 grafic py-2 px-4 mb-4">
             Registar-se!
           </h1>

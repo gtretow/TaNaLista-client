@@ -50,20 +50,20 @@ function HistoryMarketList() {
                       Lista {`${idx + 1}`}
                     </Accordion.Toggle>
 
-                    <Button
+                    <button
                       as={Link}
-                      className="float-right mx-3 btn login text-white"
+                      className="float-right mx-3 btn login  custom-btn"
                       to={`/menus/delete/${list._id}`}
                     >
                       Deletar Lista
-                    </Button>
-                    <Button
+                    </button>
+                    <button
                       as={Link}
-                      className="float-right mx-3 btn login text-white"
+                      className="float-right mx-3 btn login btn-warning "
                       to={`/menus/${list._id}`}
                     >
                       Editar Lista
-                    </Button>
+                    </button>
                   </Card.Header>
                   <Accordion.Collapse eventKey={`${idx}`}>
                     <Card.Body className="bghistory1">

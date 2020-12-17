@@ -2,7 +2,7 @@ import React from "react";
 
 function SearchBar(props) {
   return (
-    <div className="d-flex justify-content-center mb-4 ">
+    <div className="d-flex justify-content-center mb-4 mt-2">
       <input
         type="text"
         className="searchBar p-2 text-center inputcolor  "
