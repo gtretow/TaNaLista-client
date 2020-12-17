@@ -1,28 +1,84 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Container, CardDeck, Card } from "react-bootstrap";
+import { ReactComponent as GitSvg } from "../assets/github-brands.svg";
+import { ReactComponent as LinkedInSvg } from "../assets/linkedin2.svg";
 
 function About() {
   return (
-    <div >
-      <Container className="bg-dark shadow-lg mt-5 mb-5 containersize ">
-        <Row className="d-flex justify-content-center">
-          <div classname="mt-5 w-75 ">
-            <h1 className="mt-5  mb-5 text-primary">About</h1>
-            <p className="text-muted text-center">mambojambo</p>
-            <p className="text-muted text-center">mambojambo </p>
-            <p className="text-muted text-center">mambojambo</p>
-            <p className="text-muted text-center">mambojambo</p>
-          </div>
-        </Row>
-
-        <Row className="d-flex justify-content-around mt-5 mb-5 ">
-          <div className="text-center align-text-bottom">
-            <h2 className="text-primary ">Contact the creators</h2>
-            <p className="text-muted">guilherme.tretow@gmail.com</p>
-            <p className="text-muted">fellype.ads@gmail.com</p>
-            <p className="text-muted">vmvieira55@gmail.com</p>
-          </div>
-        </Row>
+    <div>
+      <Container>
+        <h2 className="text-white my-2 text-center">Sobre Nós</h2>
+        <hr className="border-success bg-dark my-4" />
+        <CardDeck className="text-center my-3">
+          <Card className="border-success bg-dark">
+            <Card.Body>
+              <Card.Title>
+                <h4 className="text-white my-4 text-center">Fellype Queiroz</h4>
+              </Card.Title>
+              <Link
+                to={{
+                  pathname:
+                    "https://www.linkedin.com/in/fellype-almeida-queiroz/",
+                }}
+                target="_blank"
+              >
+                <LinkedInSvg className="svg-css mx-2" />
+              </Link>
+              <Link
+                to={{ pathname: "https://github.com/FellypeQ" }}
+                target="_blank"
+              >
+                <GitSvg className="svg-css mx-2" />
+              </Link>
+            </Card.Body>
+          </Card>
+          <Card className="border-success bg-dark">
+            <Card.Body>
+              <Card.Title>
+                <h4 className="text-white my-4 text-center">
+                  Guilherme Tretow
+                </h4>
+              </Card.Title>
+              <Link
+                to={{
+                  pathname: "https://www.linkedin.com/in/gtretow/",
+                }}
+                target="_blank"
+              >
+                <LinkedInSvg className="svg-css mx-2" />
+              </Link>
+              <Link
+                to={{ pathname: "https://github.com/gtretow" }}
+                target="_blank"
+              >
+                <GitSvg className="svg-css mx-2" />
+              </Link>
+            </Card.Body>
+          </Card>
+          <Card className="border-success bg-dark">
+            <Card.Body>
+              <Card.Title>
+                <h4 className="text-white my-4 text-center">Vitor Vieira</h4>
+              </Card.Title>
+              <Link
+                to={{
+                  pathname: "https://www.linkedin.com/in/vitor-machado-vieira/",
+                }}
+                target="_blank"
+              >
+                <LinkedInSvg className="svg-css mx-2" />
+              </Link>
+              <Link
+                to={{ pathname: "https://github.com/vmvieira" }}
+                target="_blank"
+              >
+                <GitSvg className="svg-css mx-2" />
+              </Link>
+            </Card.Body>
+          </Card>
+        </CardDeck>
+        <hr className="border-success bg-dark my-4" />
       </Container>
     </div>
   );

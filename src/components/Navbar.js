@@ -55,8 +55,10 @@ function Navbarmain() {
         <Nav.Link as={Link} to="/menus/about" className="active text-white">
           <p>Sobre</p>
         </Nav.Link>
+
         <Nav className="pl-5 col-md-2 ml-auto  ">
           <p className="pr-1  active text-white mr-4">
+
             Olá{" "}
             {user.split(" ")[0].slice(0, 1).toUpperCase() +
               user.split(" ")[0].slice(1).toLowerCase()}

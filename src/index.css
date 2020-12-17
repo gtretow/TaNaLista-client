@@ -8,6 +8,7 @@ body {
 
 .navconfig {
   margin-left: 10%;
+
 }
 
 .backgroundimg {
@@ -353,3 +354,11 @@ ul.options li.option-active {
   background-color: #56a094;
   border-color: #56a094;
 }
+
+.svg-css {
+  height: 50px;
+  width: 50px;
+  color: #c2fff5;
+  fill: #c2fff5;
+}
+
