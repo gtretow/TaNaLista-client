@@ -5,11 +5,11 @@ function Footer() {
   return (
     <Navbar className="bg-dark mt-5 p-1  footer  fixed-bottom">
       <div className="col-lg-2 col-md-4 col-xs-6 d-flex flex-column justify-content-start ">
-        <small className="text-muted ">Criado por </small>
-        <img src="" alt="img" />
-      </div>
-      <div className="col-lg-2 col-md-4 col-xs-6">
-        <img className="" src="" alt="img" />
+        <small className="text-muted">Criado por </small>
+        <small className="text-muted creators">
+          <li>Fellype Queiroz</li>|<li>Guilherme TretoW</li>|
+          <li>Vitor Vieira</li>
+        </small>
       </div>
     </Navbar>
   );

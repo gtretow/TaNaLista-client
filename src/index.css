@@ -6,6 +6,7 @@ body {
   background-size: 50%;
   background-color: #7fd1c3;
   padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 .custom-btn {
   color: #fff;
@@ -250,4 +251,18 @@ ul.options li.option-active {
   color: #fff;
   background-color: #56a094;
   border-color: #56a094;
+}
+
+.creators {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200%;
+  font-size: 1rem;
+  list-style: none;
+}
+.grafic h3 {
+  text-align: center;
+}
+.grafic p {
+  text-align: center;
 }
