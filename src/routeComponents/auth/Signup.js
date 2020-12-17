@@ -10,6 +10,7 @@ function Signup(props) {
     email: null,
     password: null,
   });
+  const [pswMsg, setPswMsg] = useState("");
 
   function handleChange(event) {
     setState({
@@ -27,19 +28,27 @@ function Signup(props) {
       setErrors({ name: "", password: "", email: "" });
       props.history.push("/auth/login");
     } catch (err) {
-      console.error(err.response);
+      console.error(err);
+      setPswMsg(err.response.data.errors.password);
       setErrors({ ...err.response.data.errors });
     }
   }
 
   return (
     <Container>
-      <div>
-        <form className="container  w-75 " onSubmit={handleSubmit}>
-          <h1 className="text-center ">Registar-se!</h1>
+      <div className="">
+        <form className="container  w-75" onSubmit={handleSubmit}>
+          <h1 className="text-center bghistory3 bghistory2 grafic py-2 px-4 mb-4">
+            Registar-se!
+          </h1>
 
           <div className="text-center form-group">
-            <label htmlFor="signupFormName">Nome Completo</label>
+            <label
+              className="bghistory3 bghistory2 grafic py-2 px-4"
+              htmlFor="signupFormName"
+            >
+              Nome Completo
+            </label>
             <input
               className="form-control login inputcolor"
               placeholder="Name "
@@ -53,7 +62,12 @@ function Signup(props) {
           </div>
 
           <div className="text-center form-group">
-            <label htmlFor="signupFormEmail ">Endereço de E-mail</label>
+            <label
+              className="bghistory3 bghistory2 grafic py-2 px-4"
+              htmlFor="signupFormEmail"
+            >
+              Endereço de E-mail
+            </label>
             <input
               placeholder="E-maill"
               className="form-control login inputcolor"
@@ -67,7 +81,12 @@ function Signup(props) {
           </div>
 
           <div className="text-center form-group">
-            <label htmlFor="signupFormPassword">Senha</label>
+            <label
+              className="bghistory3 bghistory2 grafic py-2 px-4"
+              htmlFor="signupFormPassword"
+            >
+              Senha
+            </label>
             <input
               placeholder="Password"
               className="form-control login inputcolor"
@@ -79,17 +98,25 @@ function Signup(props) {
               onChange={handleChange}
             />
           </div>
+          {pswMsg.length > 0 ? (
+            <div className="bghistory3 bghistory2 grafic pt-2 mb-4">
+              <p>{pswMsg}</p>
+            </div>
+          ) : (
+            <></>
+          )}
 
           <div className="text-center form-group ">
             <button className="btn btn-dark login  " type="submit">
               Registrar-se!
             </button>
           </div>
-          <div className="text-center form-group">
-            <Link className="linkcolor" to="/auth/login">
+          <div className="text-center form-group mb-5">
+            <Link className="btn btn-dark login " to="/auth/login">
               Já tem uma conta? Clique aqui para conectar-se.
             </Link>
           </div>
+          <div className=" mb-4">.</div>
         </form>
       </div>
     </Container>

@@ -13,6 +13,7 @@ function Login(props) {
     email: null,
     password: null,
   });
+  const [pswMsg, setPswMsg] = useState("");
 
   function handleChange(event) {
     setState({
@@ -34,6 +35,7 @@ function Login(props) {
       setErrors({ password: "", email: "" });
       props.history.push("/menus/lista");
     } catch (err) {
+      setPswMsg(err.response.data.msg);
       console.error(err.response);
       setErrors({ ...err.response.data.errors });
     }
@@ -46,12 +48,19 @@ function Login(props) {
           className=" container  align-items-center  w-75 midpage"
           onSubmit={handleSubmit}
         >
-          <h1 className="text-center  ">Conectar-se</h1>
+          <h1 className="bghistory3 bghistory2 grafic mb-4 py-2 px-4 text-center">
+            Conectar-se
+          </h1>
 
           <div className="text-center form-group">
-            <label htmlFor="signupFormEmail">Endereço de E-mail</label>
+            <label
+              className="bghistory3 bghistory2 grafic py-2 px-4"
+              htmlFor="signupFormEmail"
+            >
+              Endereço de E-mail
+            </label>
             <input
-              className="form-control login inputcolor "
+              className="form-control login inputcolor text-center"
               placeholder="E-mail"
               type="email"
               name="email"
@@ -63,9 +72,14 @@ function Login(props) {
           </div>
 
           <div className="text-center form-group">
-            <label htmlFor="signupFormPassword">Senha</label>
+            <label
+              className="bghistory3 bghistory2 grafic py-2 px-4"
+              htmlFor="signupFormPassword"
+            >
+              Senha
+            </label>
             <input
-              className="form-control login inputcolor"
+              className="form-control login inputcolor text-center"
               placeholder="Password"
               type="password"
               name="password"
@@ -75,6 +89,13 @@ function Login(props) {
               onChange={handleChange}
             />
           </div>
+          {pswMsg.length > 0 ? (
+            <div className="bghistory3 bghistory2 grafic pt-2 mb-4 ">
+              <p>{pswMsg}</p>
+            </div>
+          ) : (
+            <></>
+          )}
 
           <div className="text-center form-group">
             <button className="btn btn-dark login" type="submit">
@@ -82,15 +103,19 @@ function Login(props) {
             </button>
           </div>
 
-          <h5 className="text-center mt-1">
-            Você precisa estar conectado com sua conta para criar, ou acessar
-            suas listas
-          </h5>
+          <div className="custom-btn login my-3">
+            <h5 className="text-center mt-1 ">
+              Você precisa estar conectado com sua conta para criar, ou acessar
+              suas listas
+            </h5>
+          </div>
+
           <div className="text-center form-group ">
-            <Link className="linkcolor" to="/auth/signup">
+            <Link className="btn btn-dark login" to="/auth/signup">
               Não tem uma conta? Clique aqui para registrar-se!
             </Link>
           </div>
+          <div className="mt-5">.</div>
         </form>
       </div>
     </Container>
