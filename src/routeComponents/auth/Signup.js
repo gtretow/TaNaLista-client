@@ -39,16 +39,10 @@ function Signup(props) {
       <div className="">
         <form className="container  w-75" onSubmit={handleSubmit}>
           <h1 className="text-center bghistory3 bghistory2 grafic py-2 px-4 mb-4">
-            Registar-se!
+            Registrar-se!
           </h1>
 
           <div className="text-center form-group">
-            <label
-              className="bghistory3 bghistory2 grafic py-2 px-4"
-              htmlFor="signupFormName"
-            >
-              Nome Completo
-            </label>
             <input
               className="form-control login inputcolor"
               placeholder="Name "
@@ -62,12 +56,6 @@ function Signup(props) {
           </div>
 
           <div className="text-center form-group">
-            <label
-              className="bghistory3 bghistory2 grafic py-2 px-4"
-              htmlFor="signupFormEmail"
-            >
-              Endereço de E-mail
-            </label>
             <input
               placeholder="E-maill"
               className="form-control login inputcolor"
@@ -81,12 +69,6 @@ function Signup(props) {
           </div>
 
           <div className="text-center form-group">
-            <label
-              className="bghistory3 bghistory2 grafic py-2 px-4"
-              htmlFor="signupFormPassword"
-            >
-              Senha
-            </label>
             <input
               placeholder="Password"
               className="form-control login inputcolor"
@@ -99,7 +81,7 @@ function Signup(props) {
             />
           </div>
           {pswMsg.length > 0 ? (
-            <div className="bghistory3 bghistory2 grafic pt-2 mb-4">
+            <div className="bghistory3 bg-warning text-center pt-2 mb-4">
               <p>{pswMsg}</p>
             </div>
           ) : (

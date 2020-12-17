@@ -114,7 +114,7 @@ function SelectItens(props) {
             )}
             {Object.values(element)[0].map((product, idx) => (
               <li className="mb-2 d-flex  productCustom" key={idx}>
-                <div className="">{product.produto}</div>
+                <div>{product.produto}</div>
                 <input
                   type="text"
                   placeholder="Quantidade e Detalhes"
