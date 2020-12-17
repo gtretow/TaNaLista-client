@@ -7,6 +7,7 @@ import MarketList from "../../components/MarketList";
 import HistoryMarketList from "./HistoryMarketList";
 import Navbarmain from "../../components/Navbar";
 import About from "../../components/About";
+import Conta from "../../components/Profile";
 import PrivateRoute from "../../routeComponents/auth/PrivateRoute";
 
 function ListaRouter(props) {
@@ -19,9 +20,14 @@ function ListaRouter(props) {
           <PrivateRoute
             exact
             path={`${props.match.path}/`}
-            component={MarketList}
+            component={HistoryMarketList}
           />
           <Route exact path={`${props.match.path}/about`} component={About} />
+          <PrivateRoute
+            exact
+            path={`${props.match.path}/conta`}
+            component={Conta}
+          />
           <PrivateRoute
             path={`${props.match.path}/lista`}
             component={MarketList}
