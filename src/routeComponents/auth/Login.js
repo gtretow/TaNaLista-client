@@ -53,12 +53,6 @@ function Login(props) {
           </h1>
 
           <div className="text-center form-group">
-            <label
-              className="bghistory3 bghistory2 grafic py-2 px-4"
-              htmlFor="signupFormEmail"
-            >
-              Endereço de E-mail
-            </label>
             <input
               className="form-control login inputcolor text-center"
               placeholder="E-mail"
@@ -72,12 +66,6 @@ function Login(props) {
           </div>
 
           <div className="text-center form-group">
-            <label
-              className="bghistory3 bghistory2 grafic py-2 px-4"
-              htmlFor="signupFormPassword"
-            >
-              Senha
-            </label>
             <input
               className="form-control login inputcolor text-center"
               placeholder="Password"
@@ -101,13 +89,6 @@ function Login(props) {
             <button className="btn btn-dark login" type="submit">
               Conectar-se!
             </button>
-          </div>
-
-          <div className="custom-btn login my-3">
-            <h5 className="text-center mt-1 ">
-              Você precisa estar conectado com sua conta para criar, ou acessar
-              suas listas
-            </h5>
           </div>
 
           <div className="text-center form-group ">

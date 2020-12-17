@@ -16,10 +16,6 @@ body {
   background-position: center 25vh;
 }
 
-.bghistory1 {
-  background-color: #fafafa !important;
-}
-
 .bghistory2 {
   background-color: #ececec !important;
 }
@@ -220,6 +216,11 @@ ul.options li.option-active {
 .productCustom {
   display: flex;
   flex-direction: column;
+}
+
+.productCustom2 {
+  display: flex;
+  flex-direction: row;
 }
 
 /* BTN WARNING =======================================================================*/
