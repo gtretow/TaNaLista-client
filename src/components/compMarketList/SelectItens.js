@@ -104,17 +104,17 @@ function SelectItens(props) {
   //o return está com ternário porque no return não aceita if, mas eles olham de o state está prrenchido, e caso esteja rederiza uma tabela com o conteudo do seu respectivo state
   return (
     <React.Fragment>
-      <ul className="d-flex justify-content-center text-center">
+      <ul className="d-flex flex-wrap  text-center bghistory3 bghistory2">
         {listaDND.map((element, idx) => (
-          <div>
+          <div className="categoriesCustom">
             {Object.values(element).toString().length > 0 ? (
-              <h3 className="mb-4">{Object.keys(element)}</h3>
+              <h3 className="mb-3">{Object.keys(element)}</h3>
             ) : (
               <></>
             )}
             {Object.values(element)[0].map((product, idx) => (
-              <li className="mb-4 d-flex" key={idx}>
-                {product.produto}
+              <li className="mb-2 d-flex  productCustom" key={idx}>
+                <div className="">{product.produto}</div>
                 <input
                   type="text"
                   placeholder="Quantidade e Detalhes"
@@ -129,12 +129,19 @@ function SelectItens(props) {
           </div>
         ))}
       </ul>
-      <div className="d-flex justify-content-center "> 
-      {newList ? (
-        <button className="btn btn-lg btn-dark m-3 login" onClick={handleNew}>Salvar Lista</button>
-      ) : (
-        <button className="btn btn-lg btn-dark m-3 login" onClick={handleEdit}>Editar Lista</button>
-      )}
+      <div className="d-flex justify-content-center ">
+        {newList ? (
+          <button className="btn btn-lg btn-dark m-3 login" onClick={handleNew}>
+            Salvar Lista
+          </button>
+        ) : (
+          <button
+            className="btn btn-lg btn-dark m-3 login"
+            onClick={handleEdit}
+          >
+            Editar Lista
+          </button>
+        )}
       </div>
       {show ? (
         <ModalMsg infosModal={props.infosModal} show={show} close={setShow} />
