@@ -37,14 +37,12 @@ function Signup(props) {
   return (
     <Container>
       <div className="">
-        <form className="container  w-75" onSubmit={handleSubmit}>
-          <h1 className="text-center bghistory3 bghistory2 grafic py-2 px-4 mb-4">
-            Registrar-se!
-          </h1>
+        <form className="mt-2 container   w-50 midpage" onSubmit={handleSubmit}>
+          <h1 className="text-center  px-4 ">Registrar-se!</h1>
 
           <div className="text-center form-group">
             <input
-              className="form-control login inputcolor"
+              className="form-control login inputcolor text-center"
               placeholder="Name "
               type="text"
               name="name"
@@ -58,7 +56,7 @@ function Signup(props) {
           <div className="text-center form-group">
             <input
               placeholder="E-maill"
-              className="form-control login inputcolor"
+              className="form-control login inputcolor text-center"
               type="email"
               name="email"
               id="signupFormEmail"
@@ -71,7 +69,7 @@ function Signup(props) {
           <div className="text-center form-group">
             <input
               placeholder="Password"
-              className="form-control login inputcolor"
+              className="form-control login inputcolor text-center"
               type="password"
               name="password"
               id="signupFormPassword"

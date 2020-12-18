@@ -7,8 +7,8 @@ function Footer() {
       <div className="col-lg-2 col-md-4 col-xs-6 d-flex flex-column justify-content-start ">
         <small className="text-muted">Criado por </small>
         <small className="text-muted creators">
-          <li>Fellype Queiroz</li>|<li>Guilherme TretoW</li>|
-          <li>Vitor Vieira</li>
+          <li>Fellype Queiroz</li>|<li>Guilherme Tretow</li>|
+          <li>Vitor Vieira</li> |
         </small>
       </div>
     </Navbar>

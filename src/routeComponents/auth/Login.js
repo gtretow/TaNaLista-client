@@ -45,10 +45,10 @@ function Login(props) {
     <Container>
       <div>
         <form
-          className=" container  align-items-center  w-75 midpage"
+          className="mt-3 container  align-items-center  w-50 midpage"
           onSubmit={handleSubmit}
         >
-          <h1 className="bghistory3 bghistory2 grafic mb-4 py-2 px-4 text-center">
+          <h1 className=" px-4 text-center">
             Conectar-se
           </h1>
 
