@@ -384,4 +384,8 @@ ul.options li.option-active {
 
 .ulCustom {
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
 }
