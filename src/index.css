@@ -381,3 +381,7 @@ ul.options li.option-active {
   color: #c2fff5;
   fill: #c2fff5;
 }
+
+.ulCustom {
+  padding: 0;
+}
