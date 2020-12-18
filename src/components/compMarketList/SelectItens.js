@@ -107,7 +107,7 @@ function SelectItens(props) {
       <ul className="d-flex flex-wrap  text-center bghistory3 bghistory2">
         {listaDND.map((element, idx) =>
           Object.values(element)[0].length > 0 ? (
-            <div className="">
+            <div className="categoriesCustom">
               {Object.values(element).toString().length > 0 ? (
                 <h3 className="mb-3">{Object.keys(element)}</h3>
               ) : (
