@@ -1,31 +1,27 @@
-![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# React IronPlate
+# Ta na lista! :D
 
-Esse boilerplate jÃ¡ inclui:
+Cansado de esquecer constantemente o que você deveria comprar? Não sabe identificar produtos básicos em seu mercado local?
 
-- PrÃ©-configuraÃ§Ã£o do Axios para injeÃ§Ã£o de cabeÃ§alhos de autenticaÃ§Ã£o e BaseURL
-- Context para armazenar state de usuÃ¡rio logado
-- Forms de Login e Signup
-- Roteamento bÃ¡sico
-- Componente de rota protegida
+Temos a solução para você. :)
 
-## Para ComeÃ§ar
+O "Tá Na Lista!" é um APP incrivel e simples de ser utilizado! Criado para agradar todo tipo de gente (leigos, ou experientes em tecnologia) o TNL é o aplicativo ideal para você que não sabe o que é uma acelga. ;) 
 
-- FaÃ§a o fork e clone deste repositÃ³rio
+Link para apresentação: https://docs.google.com/presentation/d/1fG2F15UG5xhDz6aFPq30BSSIiHRjY6k2peBLU3_LlPw/edit?usp=sharing
 
-## InstalaÃ§Ã£o
+## Para Começar
+
+- Faça o fork e clone deste repositório
+
+## Instalação
 
 ```shell
 $ npm install
 ```
 
-## Deploy no Netlify
+## Veja o Site!
 
-1. FaÃ§a login no Netlify e selecione seu repositÃ³rio
-2. Em 'Deploy settings > build command' escreva: CI=false npm run build
-3. Em 'publish directory' escreva: build/
-4. Adicione uma environment variable (variÃ¡vel de ambiente) REACT_APP_API_BASE com a URL da sua API funcionando no Heroku
-5. Adicione a URL do seu app hospedado no Netlify nas variÃ¡veis de ambiente do backend no Heroku
 
-Happy coding! ğŸ’™
+https://ta-na-lista.vercel.app
+
+
