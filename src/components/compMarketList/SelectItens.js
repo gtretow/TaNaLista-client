@@ -104,7 +104,7 @@ function SelectItens(props) {
   //o return está com ternário porque no return não aceita if, mas eles olham de o state está prrenchido, e caso esteja rederiza uma tabela com o conteudo do seu respectivo state
   return (
     <React.Fragment>
-      <ul className="d-flex flex-wrap  text-center bghistory3 bghistory2">
+      <ul className="d-flex flex-wrap text-center justify-content-center">
         {listaDND.map((element, idx) =>
           Object.values(element)[0].length > 0 ? (
             <div className="categoriesCustom">
@@ -125,7 +125,7 @@ function SelectItens(props) {
                       value={product.detalhes}
                       name={product.produto}
                       id={Object.keys(element)}
-                      className="mx-3 inputbar"
+                      className="inputbar"
                     />
                   </li>
                 ))
