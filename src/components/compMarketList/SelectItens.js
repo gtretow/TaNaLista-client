@@ -112,20 +112,25 @@ function SelectItens(props) {
             ) : (
               <></>
             )}
-            {Object.values(element)[0].map((product, idx) => (
-              <li className="mb-2 d-flex  productCustom" key={idx}>
-                <div>{product.produto}</div>
-                <input
-                  type="text"
-                  placeholder="Quantidade e Detalhes"
-                  onChange={handleChange}
-                  value={product.detalhes}
-                  name={product.produto}
-                  id={Object.keys(element)}
-                  className="mx-3 inputbar"
-                />
-              </li>
-            ))}
+
+            {Object.values(element).toString().length > 0 ? (
+              Object.values(element)[0].map((product, idx) => (
+                <li className="mb-2 d-flex  productCustom" key={idx}>
+                  <div>{product.produto}</div>
+                  <input
+                    type="text"
+                    placeholder="Quantidade e Detalhes"
+                    onChange={handleChange}
+                    value={product.detalhes}
+                    name={product.produto}
+                    id={Object.keys(element)}
+                    className="mx-3 inputbar"
+                  />
+                </li>
+              ))
+            ) : (
+              <></>
+            )}
           </div>
         ))}
       </ul>
