@@ -105,34 +105,38 @@ function SelectItens(props) {
   return (
     <React.Fragment>
       <ul className="d-flex flex-wrap  text-center bghistory3 bghistory2">
-        {listaDND.map((element, idx) => (
-          <div className="categoriesCustom">
-            {Object.values(element).toString().length > 0 ? (
-              <h3 className="mb-3">{Object.keys(element)}</h3>
-            ) : (
-              <></>
-            )}
+        {listaDND.map((element, idx) =>
+          Object.values(element)[0].length > 0 ? (
+            <div className="categoriesCustom">
+              {Object.values(element).toString().length > 0 ? (
+                <h3 className="mb-3">{Object.keys(element)}</h3>
+              ) : (
+                <></>
+              )}
 
-            {Object.values(element)[0].length > 0 ? (
-              Object.values(element)[0].map((product, idx) => (
-                <li className="mb-2 d-flex  productCustom" key={idx}>
-                  <div>{product.produto}</div>
-                  <input
-                    type="text"
-                    placeholder="Quantidade e Detalhes"
-                    onChange={handleChange}
-                    value={product.detalhes}
-                    name={product.produto}
-                    id={Object.keys(element)}
-                    className="mx-3 inputbar"
-                  />
-                </li>
-              ))
-            ) : (
-              <></>
-            )}
-          </div>
-        ))}
+              {Object.values(element)[0].length > 0 ? (
+                Object.values(element)[0].map((product, idx) => (
+                  <li className="mb-2 d-flex  productCustom" key={idx}>
+                    <div>{product.produto}</div>
+                    <input
+                      type="text"
+                      placeholder="Quantidade e Detalhes"
+                      onChange={handleChange}
+                      value={product.detalhes}
+                      name={product.produto}
+                      id={Object.keys(element)}
+                      className="mx-3 inputbar"
+                    />
+                  </li>
+                ))
+              ) : (
+                <></>
+              )}
+            </div>
+          ) : (
+            <></>
+          )
+        )}
       </ul>
       <div className="d-flex justify-content-center ">
         {newList ? (
