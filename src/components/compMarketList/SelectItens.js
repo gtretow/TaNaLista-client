@@ -113,7 +113,7 @@ function SelectItens(props) {
               <></>
             )}
 
-            {Object.values(element).toString().length > 0 ? (
+            {Object.values(element)[0].length > 0 ? (
               Object.values(element)[0].map((product, idx) => (
                 <li className="mb-2 d-flex  productCustom" key={idx}>
                   <div>{product.produto}</div>
