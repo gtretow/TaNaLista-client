@@ -375,8 +375,8 @@ ul.options li.option-active {
 }
 
 .svg-css {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   color: #c2fff5;
   fill: #c2fff5;
 }
@@ -387,4 +387,19 @@ ul.options li.option-active {
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
+}
+
+.ListaDeProdutosPorCategoriaNasSalvas {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+.produtoNaListaSalva {
+  display: flex;
+  justify-content: center;
+}
+.nomeDetalheListaSalva {
+  width: 20%;
+  display: flex;
+  flex-wrap: wrap;
 }
