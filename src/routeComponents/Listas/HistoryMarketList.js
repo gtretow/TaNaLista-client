@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Accordion, Button, Card } from "react-bootstrap";
 import { ReactComponent as CameraSvg } from "../../assets/camera-icon.svg";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import api from "../../apis/api";
 
@@ -33,6 +34,13 @@ function HistoryMarketList() {
     setShow({ modal: true, product: event.currentTarget.name });
   };
 
+  function handleOnDragEnd(result) {
+    //const items = [...lists[0]];
+    //const [reordedItems] = items.splice(result.source.index, 1);
+    //items.splice(result.destination.index, 0, reordedItems);
+    //setLists(items);
+  }
+
   function renderAccordion() {
     if (loading === false) {
       return (
@@ -63,94 +71,67 @@ function HistoryMarketList() {
                   </Card.Header>
                   <Accordion.Collapse eventKey={`${idx}`}>
                     <Card.Body className="bghistory1">
-                      <p className="font-weight-bold text-primary">Despensa</p>
-                      <ul className="removedot">
-                        {list.Lista[0].Despensa.map((eachItem, i) => {
-                          return (
-                            <li key={i} className="text-primary">
-                              {eachItem.produto} - {eachItem.detalhes}
-                              <Link
-                                onClick={handleClick}
-                                name={eachItem.produto}
-                                to="#0"
-                              >
-                                <CameraSvg className="svg-css mx-4" />
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                      <p className="font-weight-bold text-primary">Freezer</p>
-                      <ul className="removedot">
-                        {list.Lista[1].Freezer.map((eachItem, i) => {
-                          return (
-                            <li key={i} className="text-primary">
-                              {eachItem.produto} - {eachItem.detalhes}
-                              <Link
-                                onClick={handleClick}
-                                name={eachItem.produto}
-                                to="#0"
-                              >
-                                <CameraSvg className="svg-css mx-4" />
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                      <p className="font-weight-bold text-primary">Geladeira</p>
-                      <ul className="removedot">
-                        {list.Lista[2].Geladeira.map((eachItem, i) => {
-                          return (
-                            <li key={i} className="text-primary">
-                              {eachItem.produto} - {eachItem.detalhes}
-                              <Link
-                                onClick={handleClick}
-                                name={eachItem.produto}
-                                to="#0"
-                              >
-                                <CameraSvg className="svg-css mx-4" />
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                      <p className="font-weight-bold text-primary">
-                        Frutas e Hortaliças
-                      </p>
-                      <ul className="removedot">
-                        {list.Lista[3]["Frutas e Hortaliças"].map(
-                          (eachItem, i) => {
-                            return (
-                              <li key={i} className="text-primary">
-                                {eachItem.produto} - {eachItem.detalhes}
-                                <Link
-                                  onClick={handleClick}
-                                  name={eachItem.produto}
-                                  to="#0"
+                      <DragDropContext onDragEnd={handleOnDragEnd}>
+                        <Droppable droppableId="">
+                          {(provided) => (
+                            <ul
+                              {...provided.droppableProps}
+                              ref={provided.innerRef}
+                              className="p-0"
+                            >
+                              {list.Lista.map((categories, idxC) => (
+                                <Draggable
+                                  draggableId={list._id + idxC}
+                                  index={list._id + idxC}
+                                  key={list._id + idxC}
                                 >
-                                  <CameraSvg className="svg-css mx-4" />
-                                </Link>
-                              </li>
-                            );
-                          }
-                        )}
-                      </ul>
-                      <p className="font-weight-bold text-primary">Higiene</p>
-                      <ul className="removedot">
-                        {list.Lista[4].Higiene.map((eachItem, i) => {
-                          return (
-                            <li key={i} className="text-primary">
-                              {eachItem.produto} - {eachItem.detalhes}
-                              <Link
-                                onClick={handleClick}
-                                name={eachItem.produto}
-                              >
-                                <CameraSvg className="svg-css mx-4" />
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
+                                  {(provided) => (
+                                    <div
+                                      className="text-center my-3"
+                                      {...provided.draggableProps}
+                                      {...provided.dragHandleProps}
+                                      ref={provided.innerRef}
+                                    >
+                                      <p className="font-weight-bold text-primary">
+                                        {Object.keys(categories)[0]}
+                                      </p>
+                                      <ul className="ListaDeProdutosPorCategoriaNasSalvas">
+                                        {Object.values(categories)[0].map(
+                                          (products, idxP) => (
+                                            <li
+                                              key={list._id + idxP}
+                                              className="text-primary produtoNaListaSalva"
+                                            >
+                                              <div>
+                                                <input
+                                                  type="checkbox"
+                                                  className="mr-3"
+                                                />
+                                              </div>
+                                              <div className="nomeDetalheListaSalva">
+                                                {products.produto}
+                                                {` - ${products.detalhes}`}
+                                              </div>
+                                              <Link
+                                                onClick={handleClick}
+                                                name={products.produto}
+                                                to="#0"
+                                              >
+                                                <CameraSvg className="svg-css mx-4" />
+                                              </Link>
+                                            </li>
+                                          )
+                                        )}
+                                      </ul>
+                                    </div>
+                                  )}
+                                </Draggable>
+                              ))}
+                              {provided.placeholder}
+                            </ul>
+                          )}
+                        </Droppable>
+                      </DragDropContext>
                     </Card.Body>
                   </Accordion.Collapse>
                 </Card>
