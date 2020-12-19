@@ -211,7 +211,6 @@ ul.options li.option-active {
 .categoriesCustom input {
   background-color: rgba(255, 255, 255, 0.7);
   font-size: 1rem;
-  width: 100%;
 }
 .productCustom {
   display: flex;
@@ -376,8 +375,31 @@ ul.options li.option-active {
 }
 
 .svg-css {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   color: #c2fff5;
   fill: #c2fff5;
+}
+
+.ulCustom {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.ListaDeProdutosPorCategoriaNasSalvas {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+.produtoNaListaSalva {
+  display: flex;
+  justify-content: center;
+}
+.nomeDetalheListaSalva {
+  width: 20%;
+  display: flex;
+  flex-wrap: wrap;
 }

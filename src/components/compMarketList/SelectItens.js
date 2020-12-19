@@ -104,30 +104,39 @@ function SelectItens(props) {
   //o return está com ternário porque no return não aceita if, mas eles olham de o state está prrenchido, e caso esteja rederiza uma tabela com o conteudo do seu respectivo state
   return (
     <React.Fragment>
-      <ul className="d-flex flex-wrap  text-center bghistory3 bghistory2">
-        {listaDND.map((element, idx) => (
-          <div className="categoriesCustom">
-            {Object.values(element).toString().length > 0 ? (
-              <h3 className="mb-3">{Object.keys(element)}</h3>
-            ) : (
-              <></>
-            )}
-            {Object.values(element)[0].map((product, idx) => (
-              <li className="mb-2 d-flex  productCustom" key={idx}>
-                <div>{product.produto}</div>
-                <input
-                  type="text"
-                  placeholder="Quantidade e Detalhes"
-                  onChange={handleChange}
-                  value={product.detalhes}
-                  name={product.produto}
-                  id={Object.keys(element)}
-                  className="mx-3 inputbar"
-                />
-              </li>
-            ))}
-          </div>
-        ))}
+      <ul className="bghistory3 bghistory2 ulCustom">
+        {listaDND.map((element, idx) =>
+          Object.values(element)[0].length > 0 ? (
+            <div className="categoriesCustom">
+              {Object.values(element).toString().length > 0 ? (
+                <h3 className="mb-3">{Object.keys(element)}</h3>
+              ) : (
+                <></>
+              )}
+
+              {Object.values(element)[0].length > 0 ? (
+                Object.values(element)[0].map((product, idx) => (
+                  <li className="mb-2 d-flex  productCustom" key={idx}>
+                    <div>{product.produto}</div>
+                    <input
+                      type="text"
+                      placeholder="Quantidade e Detalhes"
+                      onChange={handleChange}
+                      value={product.detalhes}
+                      name={product.produto}
+                      id={Object.keys(element)}
+                      className="mx-3 inputbar"
+                    />
+                  </li>
+                ))
+              ) : (
+                <></>
+              )}
+            </div>
+          ) : (
+            <></>
+          )
+        )}
       </ul>
       <div className="d-flex justify-content-center ">
         {newList ? (
@@ -153,61 +162,3 @@ function SelectItens(props) {
 }
 
 export default SelectItens;
-
-/*
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
-  //função drag and drop
-  function handleOnDragEnd(result) {
-    const items = [...listaDND];
-    const [reordedItems] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reordedItems);
-    setListaDND(items);
-  }
-
-      <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId="">
-          {(provided) => (
-            <ul {...provided.droppableProps} ref={provided.innerRef}>
-              {listaDND.map((element, idx) => (
-                <Draggable
-                  draggableId={Object.keys(element).toString()}
-                  index={idx}
-                  key={idx}
-                >
-                  {(provided) => (
-                    <div
-                      className="text-center my-3"
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      ref={provided.innerRef}
-                    >
-                      {Object.values(element).toString().length > 0 ? (
-                        <h3>{Object.keys(element)}</h3>
-                      ) : (
-                        <></>
-                      )}
-                      {Object.values(element)[0].map((product, idx) => (
-                        <li key={idx}>
-                          {product.produto}
-                          <input
-                            type="text"
-                            placeholder="Quantidade e Detalhes"
-                            onChange={handleChange}
-                            value={product.detalhes}
-                            name={product.produto}
-                            category={Object.keys(element)}
-                            className="mx-3 inputbar"
-                          />
-                        </li>
-                      ))}
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </ul>
-          )}
-        </Droppable>
-      </DragDropContext>
-*/
